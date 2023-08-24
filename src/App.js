@@ -1,21 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [msg, setMsg] = useState([]);
+  const [message, setMessage] = useState('');
+
   useEffect(() => {
-    fetch("/api/hello")
-        .then((res) => {return res.json();})
-        .then((data) => {setMsg(data);})
+    axios.get('/api/hello')
+      .then(response => {
+        setMessage(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching message:', error);
+      });
   }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <ul>
-          {msg.map((content, idx) => <li key={`${idx} - ${content}`}>{content}</li>)}
-        </ul>
-      </header>
+      <h1>Hello from React App!</h1>
+      <p>Message from Spring Boot: {message}</p>
     </div>
   );
 }
