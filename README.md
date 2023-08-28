@@ -2,7 +2,7 @@
 
 
 ## vite 실행
-```
+```JS
 npm run dev
 
 ```
