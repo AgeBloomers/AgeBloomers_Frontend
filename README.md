@@ -2,10 +2,9 @@
 
 
 ## vite 실행
-```JS
-const str = `
+```
 npm run dev
-`
+
 ```
 
 ## 사용 패키지
