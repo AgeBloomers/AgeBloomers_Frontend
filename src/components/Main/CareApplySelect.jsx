@@ -30,10 +30,6 @@ const Form_carehelper = () => {
     window.location.href = "/CareApplySelect/Form_carehelper";
   };
 
-  const AL = () => {
-    window.location.href = "/CareApplySelect/Applylist";
-  };
-
   return (
     <div>
       <NavBar />
