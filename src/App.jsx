@@ -1,24 +1,23 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ApplyAsSitterPage from "./component/detail/ApplyAsSitterPage";
-import ApplyComplete from "./component/detail/ApplyComplete";
-import ElderlySupportPage from "./component/detail/ElderlySupportPage";
-import FindeMore from "./component/detail/FindeMore"
-import Finder from "./component/detail/Finder"
-import FindLocalSittersPage from "./component/detail/FindLocalSittersPage";
-import Form_carehelper from "./component/detail/Form_carehelper";
-import Form_mom from "./component/detail/Form_mom"
-import Form_senior from "./component/detail/Form_senior"
-import Form_sitter from "./component/detail/Form_sitter"
-import ParentingSupportPage from "./component/detail/ParentingSupportPage";
-import Select from "./component/detail/Select"
-import Stretching from "./component/detail/Stretching"
-import Stretching_view from "./component/detail/Stretching_view"
-import Yoga from "./component/detail/Yoga"
-import Yoga_view from "./component/detail/Yoga_view";
-import MainPage from "./component/main/MainPage";
-import YogaPage from "./component/detail/YogaPage";
-
+import ApplyAsSitterPage from "./components/Detail/ApplyAsSitterPage";
+import ApplyComplete from "./components/Detail/ApplyComplete";
+import ElderlySupportPage from "./components/Detail/ElderlySupportPage";
+import FindeMore from "./components/Detail/FindeMore"
+import Finder from "./components/Detail/Finder"
+import FindLocalSittersPage from "./components/Detail/FindLocalSittersPage";
+import Form_carehelper from "./components/Detail/Form_carehelper";
+import Form_mom from "./components/Detail/Form_mom"
+import Form_senior from "./components/Detail/Form_senior"
+import Form_sitter from "./components/Detail/Form_sitter"
+import ParentingSupportPage from "./components/Detail/ParentingSupportPage";
+import Select from "./components/Detail/Select"
+import Stretching from "./components/Detail/Stretching"
+import Stretching_view from "./components/Detail/Stretching_view"
+import Yoga from "./components/Detail/Yoga"
+import Yoga_view from "./components/Detail/Yoga_view";
+import YogaPage from "./components/Detail/YogaPage";
+import MainPage from "./components/Main/MainPage"
 function App() {
   return (
     <BrowserRouter>
