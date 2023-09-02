@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Form_mom = () => {
     return (
         <div>
