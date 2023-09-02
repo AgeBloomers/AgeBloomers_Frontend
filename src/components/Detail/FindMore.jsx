@@ -1,4 +1,4 @@
-const FindeMore = () => {
+const FindMore = () => {
     return (
         <div>
             
@@ -6,4 +6,4 @@ const FindeMore = () => {
     );
 };
 
-export default FindeMore;
+export default FindMore;

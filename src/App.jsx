@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ApplyAsSitterPage from "./components/Detail/ApplyAsSitterPage";
 import ApplyComplete from "./components/Detail/ApplyComplete";
-import FindeMore from "./components/Detail/FindeMore";
+import FindMore from "./components/Detail/FindMore";
 import Finder from "./components/Detail/Finder";
 import FindLocalSittersPage from "./components/Detail/FindLocalSittersPage";
 import Form_carehelper from "./components/Detail/Form_carehelper";
@@ -12,6 +12,7 @@ import CareApplySelect from "./components/Main/CareApplySelect";
 import Applylist from "./components/Detail/Applylist";
 import FindSitter from "./components/Detail/FindSitter";
 import FindCareHelper from "./components/Detail/FindCareHelper";
+import FindSitter_All from "./components/Detail/FindSitter_All";
 
 function App() {
   return (
@@ -36,9 +37,11 @@ function App() {
         <Route path="/Finder" element={<Finder />}></Route>
         <Route path="/Finder/FindSitter" element={<FindSitter />}></Route>
         <Route path="/Finder/FindCareHelper" element={<FindCareHelper />}></Route>
-        <Route path="/Finder/FindCareHelper/FindeMore" element={<FindeMore />}></Route>
-        <Route path="/Finder/FindCareHelper/FindeMore/ApplyComplete" element={<ApplyComplete />}></Route>
+        <Route path="/Finder/FindCareHelper/FindMore" element={<FindMore />}></Route>
+        <Route path="/Finder/FindCareHelper/FindMore/ApplyComplete" element={<ApplyComplete />}></Route>
 
+        {/* 테스트 */}
+        <Route path="/FindSitter_All" element={<FindSitter_All />}></Route>
 
         <Route
           path="/ApplyAsSitterPage"
