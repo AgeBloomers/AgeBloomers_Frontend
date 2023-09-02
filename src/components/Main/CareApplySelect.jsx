@@ -14,6 +14,10 @@ const Form_carehelper = () => {
     window.location.href = "/CareApplySelect/Form_carehelper";
   };
 
+  const AL = () => {
+    window.location.href = "/CareApplySelect/Applylist";
+  };
+
   return (
     <div>
       <NavBar />
@@ -47,7 +51,7 @@ const Form_carehelper = () => {
               지원하기
             </button>
             <div className="flex mt-4">
-              <button className="bg-FAAE2B text-white rounded-3xl font-Pretendard text-xl mt-[5px] py-20 px-[155px] hover:bg-00694E transition duration-300 mt-4 ml-[90px]">
+              <button onClick={AL} className="bg-FAAE2B text-white rounded-3xl font-Pretendard text-xl mt-[5px] py-20 px-[155px] hover:bg-00694E transition duration-300 mt-4 ml-[90px]">
                 나의 지원현황
               </button>
             </div>

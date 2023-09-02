@@ -17,6 +17,7 @@ import Yoga_view from "./components/Detail/Yoga_view";
 import YogaPage from "./components/Detail/YogaPage";
 import MainPage from "./components/Main/MainPage";
 import CareApplySelect from "./components/Main/CareApplySelect";
+import Applylist from "./components/Detail/Applylist";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
         <Route path="/CareApplySelect" element={<CareApplySelect />}></Route>
         <Route path="/CareApplySelect/Form_sitter" element={<Form_sitter />}></Route>
         <Route path="/CareApplySelect/Form_carehelper" element={<Form_carehelper />}></Route>
-        
+        <Route path="/CareApplySelect/Applylist" element={<Applylist />}></Route>
+
         <Route path="/ApplyComplete" element={<ApplyComplete />}></Route>
         <Route path="/FindeMore" element={<FindeMore />}></Route>
         <Route path="/Finder" element={<Finder />}></Route>
