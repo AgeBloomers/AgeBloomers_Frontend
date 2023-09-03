@@ -1,7 +1,7 @@
 import NavBar from "../Main/NavBar";
 import { useState, useEffect } from "react";
 import FindCare_All from "./FindCare_All";
-import FindSitter_sitter from "./FindSitter_sitter";
+import FindCare_carehelper from "./FindCare_carehelper";
 import FindSitter_Parent from "./FindSitter_Parent";
 
 const FindCareHelper = () => {
@@ -80,7 +80,7 @@ const FindCareHelper = () => {
           {/* 선택한 탭에 따라 컴포넌트 조건부 렌더링 */}
           <div id="content">
             {selectedTab === "all" && <FindCare_All />}
-            {selectedTab === "carehelper" && <FindSitter_sitter />}
+            {selectedTab === "carehelper" && <FindCare_carehelper />}
             {selectedTab === "old" && <FindSitter_Parent />}
             {/* 다른 탭들에 따른 컴포넌트 추가 가능 */}
           </div>
