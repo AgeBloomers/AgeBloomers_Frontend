@@ -51,13 +51,13 @@ const FindSitter_All = () => {
   // 카드 개수에 따라 divStyle의 height 계산
   const [divStyle, setDivStyle] = useState({
     width: "600px",
-    height: `${cardData.length * 200}px`, // 카드 하나당 약 200px 높이로 가정
+    height: `${cardData.length * 150}px`, // 카드 하나당 약 150px 높이로 가정
   });
 
   useEffect(() => {
     setDivStyle((prevStyle) => ({
       ...prevStyle,
-      height: `${cardData.length * 200}px`, // 카드 개수에 따라 높이 업데이트
+      height: `${cardData.length * 150}px`, // 카드 개수에 따라 높이 업데이트
     }));
   }, [cardData.length]);
 
