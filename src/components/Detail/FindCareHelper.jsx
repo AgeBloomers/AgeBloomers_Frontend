@@ -2,7 +2,7 @@ import NavBar from "../Main/NavBar";
 import { useState, useEffect } from "react";
 import FindCare_All from "./FindCare_All";
 import FindCare_carehelper from "./FindCare_carehelper";
-import FindSitter_Parent from "./FindSitter_Parent";
+import FindCare_old from "./FindCare_old";
 
 const FindCareHelper = () => {
   const [divHeight, setDivHeight] = useState(600); // 초기 높이 설정
@@ -74,14 +74,14 @@ const FindCareHelper = () => {
                 selectedTab === "old" ? "bg-00694E" : ""
               }`}
             >
-              노인
+              보호자(어르신)
             </button>
           </div>
           {/* 선택한 탭에 따라 컴포넌트 조건부 렌더링 */}
           <div id="content">
             {selectedTab === "all" && <FindCare_All />}
             {selectedTab === "carehelper" && <FindCare_carehelper />}
-            {selectedTab === "old" && <FindSitter_Parent />}
+            {selectedTab === "old" && <FindCare_old />}
             {/* 다른 탭들에 따른 컴포넌트 추가 가능 */}
           </div>
         </div>
