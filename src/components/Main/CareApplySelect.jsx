@@ -8,6 +8,7 @@ const Form_carehelper = () => {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [username, setUsername] = useState(""); // 입력된 비밀번호 상태 추가
   const [password, setPassword] = useState(""); // 입력된 비밀번호 상태 추가
   const openModal = () => {
     setIsModalOpen(true);
@@ -18,9 +19,44 @@ const Form_carehelper = () => {
   };
 
   const handleCheck = () => {
+    // 사용자 이름과 비밀번호를 서버로 보내거나 다른 처리를 수행할 수 있음
+    // 예를 들어, 서버로 API 요청을 보내서 사용자 인증을 수행하는 등... 일단 이건 임시로
+    console.log("사용자 이름:", username);
+    console.log("비밀번호:", password);
+
+    // 비밀번호 확인 후 처리를 수행한 후 모달을 닫을 수 있음
     window.location.href = "/CareApplySelect/Applylist";
     closeModal();
   };
+
+  // const handleCheck = () => {
+  //   window.location.href = "/CareApplySelect/Applylist";
+  //   closeModal();
+  // };
+
+  // const handleCheck = async () => {
+  //   try {
+  //     // 사용자 이름과 비밀번호를 API에 전달하여 인증 확인하고
+  //     const response = await axios.post("/api/auth", {
+  //       username: username,
+  //       password: password,
+  //     });
+
+  //     // API 응답에 따라 처리
+  //     if (response.status === 200 && response.data.authenticated) {
+  //       // 인증 성공 시 신청현황 볼수있고
+  //       window.location.href = "/CareApplySelect/Applylist";
+  //     } else {
+  //       // 인증 실패시 메세지 띄움
+  //       alert("사용자 이름 또는 비밀번호가 일치하지 않습니다.");
+  //     }
+  //   } catch (error) {
+  //     console.error("API 호출 오류:", error);
+  //   }
+
+  //   // 비밀번호 확인 후 처리를 수행한 후 모달닫음
+  //   closeModal();
+  // };
 
   const FS = () => {
     window.location.href = "/CareApplySelect/Form_sitter";
@@ -80,8 +116,16 @@ const Form_carehelper = () => {
                         비밀번호 입력
                       </h3>
                       <p className="text-gray-500">
-                        신청서에 작성한 비밀번호를 입력하세요.
+                        신청서에 작성한 성함과 비밀번호를 입력하세요.
                       </p>
+                      {/* 사용자 이름 입력 창 */}
+                      <input
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="border border-gray-300 rounded-lg p-2 w-full mt-4"
+                        placeholder="사용자 이름 입력"
+                      />
                       {/* 비밀번호 입력 창 */}
                       <input
                         type="password"
