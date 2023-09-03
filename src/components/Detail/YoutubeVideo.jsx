@@ -3,6 +3,7 @@ import YouTube from 'react-youtube';
 
 const YoutubeVideo = (props) => {
   console.log(props.urlOption)
+  
   // YouTube 동영상의 옵션 설정
   const opts = {
     height: '540',
