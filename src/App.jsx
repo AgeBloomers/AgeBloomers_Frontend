@@ -31,8 +31,7 @@ function App() {
         
         {/* 요가 선택 */}
         <Route path="/SelectCare/Yoga" element={<Yoga />}></Route>
-        <Route path="/SelectCare/Yoga/Yoga_view" element={<Yoga_view />}></Route>
-
+        <Route path="/SelectCare/Yoga/Yoga_view/:urlState" element={<Yoga_view />} />
         {/* 스트레칭 선택 */}
         <Route path="/SelectCare/Stretching" element={<Stretching />}></Route>
         <Route path="/SelectCare/Stretching/Stretching_view" element={<Stretching_view />}></Route>

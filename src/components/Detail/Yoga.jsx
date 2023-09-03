@@ -1,7 +1,31 @@
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Yoga_view from "./Yoga_view";
 
 const Yoga = () => {
-    return (
+  const [urlOption, setUrlOption] = useState('');
+
+
+    const handleButtonClick = ( key ) => {
+      // const newState = "k_P-iOeXcZE"; // 새로운 상태 값
+      setUrlOption(key);
+    };
+
+    useEffect(() => {
+    }, [urlOption])
+    
+  return (
+    <>
+    {urlOption!='' && (
+      <div>
+      <Yoga_view urlOption={urlOption} /> {/* prop으로 전달 */}
+      </div>
+    )
+    }
+    
+
+
+    {urlOption === '' && (
     <main className="sm:h-screen bg-neutral-600 font-[Pretendard]">
     <header className=" fixed w-full top-0 z-50 bg-neutral-200 ">
       <section className="w-[355px] sm:w-[755px] h-[140px] relative bg-neutral-200 left-1/2 transform -translate-x-1/2">
@@ -17,33 +41,41 @@ const Yoga = () => {
       <p className='hidden sm:block text-neutral-600 absolute'>임산부 요가</p>
       <div className="w-[390px] sm:w-[1000px] h-full relative p-[20px] flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
           <div className="grid grid-cols-2 gap-4">
+
               {/* 아기 자세 버튼 */}
-              <Link to="/SelectCare/Yoga/Yoga_view">
-              <button className="w-full bg-slate-400 rounded-[20px] relative shadow border-4">
-                  <div className="p-[40px]">아기<br />자세</div>
-                  </button>
-                  </Link>
               
+              <button 
+                className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
+                onClick={() => handleButtonClick('OA6l5X9RWMQ')}
+                >
+                <div className="p-[40px]">아기<br />자세</div>
+              </button>
+
               {/* 사바 아바나 버튼 */}
-              <Link to="/SelectCare/Yoga/Yoga_view">
-              <button className="w-full bg-slate-400 rounded-[20px] relative shadow border-4">
+              <button 
+                className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
+                onClick={() => handleButtonClick('gftwm-GrHrE')}
+                >
                   <div className="p-[40px]">사바<br />아바나</div>
                   </button>
-                  </Link>
 
               {/* 고양이 자세 버튼 */}
-              <Link to="/SelectCare/Yoga/Yoga_view">
-                  <button className="w-full bg-slate-400 rounded-[20px] relative shadow border-4">
+                  <button 
+                    className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
+                    onClick={() => handleButtonClick('Kvc9R9ejXWQ')}
+                  >
                   <div className="p-[40px]">고양이<br />자세</div>
                   </button>
-                  </Link>
 
               {/* 나비 자세 버튼 */}
-              <Link to="/SelectCare/Yoga/Yoga_view">
-              <button className="w-full bg-slate-400 rounded-[20px] relative shadow border-4">
-                          <div className="p-[40px]">나비<br />자세</div>
+                  <button 
+                    className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
+                    onClick={() => handleButtonClick('Yr1l330oMvE')}
+                  >
+                  <div className="p-[40px]">나비<br />자세</div>
                   </button>
-              </Link>
+
+
               </div>
           </div>
       </div>
@@ -59,7 +91,10 @@ const Yoga = () => {
             </div>
           </footer>
           </main>
+          )}
+      
+          </>     
     );
-};
+}
 
 export default Yoga;

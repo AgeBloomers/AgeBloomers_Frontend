@@ -1,4 +1,5 @@
 import React from 'react';
+import YoutubeVideo from './YoutubeVideo';
 
 
 const Stretching_view = () => {
@@ -16,25 +17,17 @@ const Stretching_view = () => {
 
 
       {/* Button Wrapper */}
-      <div className="top-[140px] sm:pt-[20px] min-w-full h-[615px] sm:h-[500px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
+      <div className="top-[140px] sm:pt-[20px] min-w-full h-[600px] sm:h-[650px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
       <p className='hidden sm:block text-neutral-600 absolute'>노인 스트레칭</p>
-      <div className='absolute top-[100px]'>
-      {/* YouTube 영상을 임베드하는 iframe */}
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-        title="YouTube Video"
-        frameBorder="0"
-        allowfullscreen
-      ></iframe>
+      <div className=' absolute top-[100px]'>
+      {/* YouTube 동영상 임베드 컴포넌트 */}
+            <YoutubeVideo />
         </div>
       </div>
-      <div className="top-[140px] sm:pt-[20px] min-w-full h-[615px] sm:h-[500px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
+      <div className="top-[140px] sm:pt-[20px] min-w-full h-[720px] sm:h-[500px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
       <p className='hidden sm:block text-neutral-600 absolute'>설명</p>
       
       </div>
-
 
         {/* Footer */}
         <footer className="top-[140px] min-w-full h-[200px] sm:h-[200px] relative">
