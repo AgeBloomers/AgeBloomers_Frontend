@@ -4,7 +4,6 @@ import ApplyAsSitterPage from "./components/Detail/ApplyAsSitterPage";
 import ApplyComplete from "./components/Detail/ApplyComplete";
 import FindMore from "./components/Detail/FindMore";
 import Finder from "./components/Detail/Finder";
-import FindLocalSittersPage from "./components/Detail/FindLocalSittersPage";
 import Form_carehelper from "./components/Detail/Form_carehelper";
 import Form_sitter from "./components/Detail/Form_sitter";
 import MainPage from "./components/Main/MainPage";
@@ -47,11 +46,7 @@ function App() {
           path="/ApplyAsSitterPage"
           element={<ApplyAsSitterPage />}
         ></Route>
-
-        <Route
-          path="/FindLocalSittersPage"
-          element={<FindLocalSittersPage />}
-        ></Route>
+     
         <Route path="/MainPage" element={<MainPage />}></Route>
       </Routes>
     </BrowserRouter>
