@@ -15,10 +15,15 @@ const NavBar = () => {
     <div>
       <nav className="bg-f2f2f2 p-4" style={navStyle}>
         <div className="container mx-auto flex justify-between items-center">
-          <div className="text-00473E font-bold font-Pretendard">Agebloomers</div>
-          <button className="py-2 px-4 bg-FFD700 text-00473E font-bold rounded-full font-Pretendard">
+          {/* 로고 이미지 추가 */}
+          <img
+            src='/logo.png'
+            alt="Agebloomers 로고"
+            className="ml-[-30px] h-[110px] w-[220px]" // 이미지 크기 조절
+          />
+          {/* <button className="py-2 px-4 bg-FFD700 text-00473E font-bold rounded-full font-Pretendard">
             마이페이지
-          </button>
+          </button> */}
         </div>
       </nav>
       <div style={blankStyle}></div>

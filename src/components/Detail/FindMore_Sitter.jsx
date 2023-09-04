@@ -117,7 +117,6 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
 
   const handleConfirmApply = () => {
     // "신청하기" 모달에서 확인을 클릭했을 때 수행할 동작을 작성
-    // 여기서는 예시로 "신청 완료!" 메시지를 출력하도록 했습니다.
     alert("신청 완료!");
     handleModalClose(); // 모달 닫기
   };
