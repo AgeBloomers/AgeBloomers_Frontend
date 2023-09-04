@@ -1,27 +1,21 @@
 import NavBar from "../Main/NavBar";
 import { useState, useEffect } from "react";
-import FindCare_All from "./FindCare_All";
 import FindCare_carehelper from "./FindCare_carehelper";
 import FindCare_old from "./FindCare_old";
 
 const FindCareHelper = () => {
   const [divHeight, setDivHeight] = useState(600); // 초기 높이 설정
 
-  const [selectedTab, setSelectedTab] = useState("all");
+  const [selectedTab, setSelectedTab] = useState("carehelper");
 
   const handleAllClick = () => {
-    setSelectedTab("all");
-    // 전체 버튼을 클릭했을 때 수행할 동작을 작성
+    setSelectedTab("carehelper");
+    // 요양보호사 버튼을 클릭했을 때 수행할 동작을 작성
   };
 
   const handleCarehelperClick = () => {
-    setSelectedTab("carehelper");
-    // 베이비시터 버튼을 클릭했을 때 수행할 동작을 작성
-  };
-
-  const handleOldClick = () => {
     setSelectedTab("old");
-    // 부모 버튼을 클릭했을 때 수행할 동작을 작성
+    // 보호자/어르신 버튼을 클릭했을 때 수행할 동작을 작성
   };
 
   // 컴포넌트가 렌더링될 때마다 높이를 계산
@@ -53,15 +47,6 @@ const FindCareHelper = () => {
             <button
               onClick={handleAllClick}
               className={`bg-525151 text-FFD700 rounded-full font-Pretendard py-1 px-8 hover:bg-00473E transition duration-300 ${
-                selectedTab === "all" ? "bg-00694E" : ""
-              }`}
-            >
-              전체
-            </button>
-
-            <button
-              onClick={handleCarehelperClick}
-              className={`bg-525151 text-FFD700 rounded-full font-Pretendard py-1 px-8 hover:bg-00473E transition duration-300 ${
                 selectedTab === "carehelper" ? "bg-00694E" : ""
               }`}
             >
@@ -69,17 +54,17 @@ const FindCareHelper = () => {
             </button>
 
             <button
-              onClick={handleOldClick}
+              onClick={handleCarehelperClick}
               className={`bg-525151 text-FFD700 rounded-full font-Pretendard py-1 px-8 hover:bg-00473E transition duration-300 ${
                 selectedTab === "old" ? "bg-00694E" : ""
               }`}
             >
-              보호자(어르신)
+              어르신
             </button>
+
           </div>
           {/* 선택한 탭에 따라 컴포넌트 조건부 렌더링 */}
           <div id="content">
-            {selectedTab === "all" && <FindCare_All />}
             {selectedTab === "carehelper" && <FindCare_carehelper />}
             {selectedTab === "old" && <FindCare_old />}
             {/* 다른 탭들에 따른 컴포넌트 추가 가능 */}

@@ -1,18 +1,12 @@
 import NavBar from "../Main/NavBar";
 import { useState, useEffect } from "react";
-import FindSitter_All from "./FindSitter_All";
 import FindSitter_sitter from "./FindSitter_sitter";
 import FindSitter_Parent from "./FindSitter_Parent";
 
 const FindSitter = () => {
   const [divHeight, setDivHeight] = useState(600); // 초기 높이 설정
 
-  const [selectedTab, setSelectedTab] = useState("all");
-
-  const handleAllClick = () => {
-    setSelectedTab("all");
-    // 전체 버튼을 클릭했을 때 수행할 동작을 작성
-  };
+  const [selectedTab, setSelectedTab] = useState("babysitter");
 
   const handleBabysitterClick = () => {
     setSelectedTab("babysitter");
@@ -46,15 +40,6 @@ const FindSitter = () => {
           {/* 네비게이션 바 */}
           <div className="ml-10 mt-4 flex space-x-4">
             <button
-              onClick={handleAllClick}
-              className={`bg-525151 text-FFD700 rounded-full font-Pretendard py-1 px-8 hover:bg-00473E transition duration-300 ${
-                selectedTab === "all" ? "bg-00694E" : ""
-              }`}
-            >
-              전체
-            </button>
-
-            <button
               onClick={handleBabysitterClick}
               className={`bg-525151 text-FFD700 rounded-full font-Pretendard py-1 px-8 hover:bg-00473E transition duration-300 ${
                 selectedTab === "babysitter" ? "bg-00694E" : ""
@@ -74,7 +59,6 @@ const FindSitter = () => {
           </div>
           {/* 선택한 탭에 따라 컴포넌트 조건부 렌더링 */}
           <div id="content">
-            {selectedTab === "all" && <FindSitter_All />}
             {selectedTab === "babysitter" && <FindSitter_sitter />}
             {selectedTab === "parent" && <FindSitter_Parent />}
             {/* 다른 탭들에 따른 컴포넌트 추가 가능 */}

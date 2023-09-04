@@ -70,8 +70,8 @@ const FindSitter_Parent = () => {
   }, [cards.length]);
 
   const findMoreStyle = {
-    marginTop: "-300px", // 원하는 여백 크기로 조절
-    marginBottom:"-300px"
+    marginTop: "-250px", // 원하는 여백 크기로 조절
+    marginBottom:"-250px"
   };
 
   return (

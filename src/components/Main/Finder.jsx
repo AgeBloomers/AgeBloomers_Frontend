@@ -1,8 +1,9 @@
-import NavBar from "../Main/NavBar";
+import NavBar from "./NavBar";
 
 const Finder = () => {
   const divStyle = {
     width: "600px",
+    marginTop: "200px",
     height: "600px",
   };
 
