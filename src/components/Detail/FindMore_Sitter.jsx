@@ -92,8 +92,8 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
   // divStyle의 height 값을 조절하는 useEffect
   useEffect(() => {
     // 컴포넌트 내용에 따라 높이를 동적으로 계산
-    const contentHeight = document.getElementById("find-more-content")
-      .offsetHeight;
+    const contentHeight =
+      document.getElementById("find-more-content").offsetHeight;
     setDivStyle((prevStyle) => ({
       ...prevStyle,
       height: `${contentHeight}px`,
@@ -126,10 +126,14 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
       <div className="flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
           {selectedCardData && (
-            <div key={selectedCardData.id} className="p-4" id="find-more-content">
+            <div
+              key={selectedCardData.id}
+              className="p-4"
+              id="find-more-content"
+            >
               <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
                 <div>
-                 <h2 className="text-lg font-Pretendard font-semibold text-left">
+                  <h2 className="text-lg font-Pretendard font-semibold text-left">
                     {selectedCardData.title}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
@@ -158,22 +162,24 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
                   </h2>
                   <p className="text-gray-500">{selectedCardData.content}</p>
                 </div>
-                <div className="mt-[200px] ml-[20px]">
-                <button
-                  onClick={handleFoldClick}
-                  className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
-                >
-                  접기
-                </button>
-                  <button
-                    onClick={handleApplyClick}
-                    className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
-                  >
-                    신청하기
-                  </button>
+                <div className="mt-[200px] ml-auto">
+                  <div className="flex flex-col space-y-4">
+                    <button
+                      onClick={handleFoldClick}
+                      className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard"
+                    >
+                      접기
+                    </button>
+                    <button
+                      onClick={handleApplyClick}
+                      className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard"
+                    >
+                      신청하기
+                    </button>
                   </div>
                 </div>
               </div>
+            </div>
           )}
         </div>
       </div>

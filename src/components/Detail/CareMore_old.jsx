@@ -28,53 +28,53 @@ const CareMore_old = ({ onClose, selectedCard }) => {
       coment: "코멘트 : ㅇㅇㅇ",
     },
     {
-        id: 3,
-        title: "이름 : 이예지",
-        area: "지역 : 대구",
-        type: "유형 : 보호자",
-        age: "나이 : 4세",
-        sex: "성별 : 여자",
-        call: "연락처 : 010-0000-0000",
-        day: " 희망일 : 2023/07/23 ~ 2023/09/03",
-        time: "희망 시간 : 09:00 ~ 17:00",
-        coment: "코멘트 : ㅇㅇㅇ",
-      },
-      {
-        id: 4,
-        title: "이름 : 조혜원",
-        area: "지역 : 경북",
-        type: "유형 : 보호자",
-        age: "나이 : 3세",
-        sex: "성별 : 여자",
-        call: "연락처 : 010-0000-0000",
-        day: "희망일 : 2023/07/23 ~ 2023/09/03",
-        time: "희망 시간 : 09:00 ~ 17:00",
-        coment: "코멘트 : ㅇㅇㅇ",
-      },
-      {
-        id: 5,
-        title: "이름 : 두부",
-        area: "지역 : 경북",
-        type: "유형 : 보호자",
-        age: "나이 : 2세",
-        sex: "성별 : 여자",
-        call: "연락처 : 010-0000-0000",
-        day: "희망일 : 2023/07/23 ~ 2023/09/03",
-        time: "희망 시간 : 09:00 ~ 17:00",
-        coment: "코멘트 : ㅇㅇㅇ",
-      },
-      {
-        id: 6,
-        title: "이름 : 루스",
-        area: "지역 : 경북",
-        type: "유형 : 보호자",
-        age: "나이 : 23세",
-        sex: "성별 : 여자",
-        call: "연락처 : 010-0000-0000",
-        day: "업무 희망일 : 2023/07/23 ~ 2023/09/03",
-        time: "희망 시간 : 09:00 ~ 17:00",
-        coment: "코멘트 : ㅇㅇ.",
-      },
+      id: 3,
+      title: "이름 : 이예지",
+      area: "지역 : 대구",
+      type: "유형 : 보호자",
+      age: "나이 : 4세",
+      sex: "성별 : 여자",
+      call: "연락처 : 010-0000-0000",
+      day: " 희망일 : 2023/07/23 ~ 2023/09/03",
+      time: "희망 시간 : 09:00 ~ 17:00",
+      coment: "코멘트 : ㅇㅇㅇ",
+    },
+    {
+      id: 4,
+      title: "이름 : 조혜원",
+      area: "지역 : 경북",
+      type: "유형 : 보호자",
+      age: "나이 : 3세",
+      sex: "성별 : 여자",
+      call: "연락처 : 010-0000-0000",
+      day: "희망일 : 2023/07/23 ~ 2023/09/03",
+      time: "희망 시간 : 09:00 ~ 17:00",
+      coment: "코멘트 : ㅇㅇㅇ",
+    },
+    {
+      id: 5,
+      title: "이름 : 두부",
+      area: "지역 : 경북",
+      type: "유형 : 보호자",
+      age: "나이 : 2세",
+      sex: "성별 : 여자",
+      call: "연락처 : 010-0000-0000",
+      day: "희망일 : 2023/07/23 ~ 2023/09/03",
+      time: "희망 시간 : 09:00 ~ 17:00",
+      coment: "코멘트 : ㅇㅇㅇ",
+    },
+    {
+      id: 6,
+      title: "이름 : 루스",
+      area: "지역 : 경북",
+      type: "유형 : 보호자",
+      age: "나이 : 23세",
+      sex: "성별 : 여자",
+      call: "연락처 : 010-0000-0000",
+      day: "업무 희망일 : 2023/07/23 ~ 2023/09/03",
+      time: "희망 시간 : 09:00 ~ 17:00",
+      coment: "코멘트 : ㅇㅇ.",
+    },
     // 더미임
   ];
 
@@ -92,8 +92,8 @@ const CareMore_old = ({ onClose, selectedCard }) => {
   // divStyle의 height 값을 조절하는 useEffect
   useEffect(() => {
     // 컴포넌트 내용에 따라 높이를 동적으로 계산
-    const contentHeight = document.getElementById("find-more-content")
-      .offsetHeight;
+    const contentHeight =
+      document.getElementById("find-more-content").offsetHeight;
     setDivStyle((prevStyle) => ({
       ...prevStyle,
       height: `${contentHeight}px`,
@@ -126,10 +126,14 @@ const CareMore_old = ({ onClose, selectedCard }) => {
       <div className="flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
           {selectedCardData && (
-            <div key={selectedCardData.id} className="p-4" id="find-more-content">
+            <div
+              key={selectedCardData.id}
+              className="p-4"
+              id="find-more-content"
+            >
               <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
                 <div>
-                 <h2 className="text-lg font-Pretendard font-semibold text-left">
+                  <h2 className="text-lg font-Pretendard font-semibold text-left">
                     {selectedCardData.title}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
@@ -158,22 +162,24 @@ const CareMore_old = ({ onClose, selectedCard }) => {
                   </h2>
                   <p className="text-gray-500">{selectedCardData.content}</p>
                 </div>
-                <div className="mt-[200px] ml-[20px]">
-                <button
-                  onClick={handleFoldClick}
-                  className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
-                >
-                  접기
-                </button>
-                  <button
-                    onClick={handleApplyClick}
-                    className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
-                  >
-                    신청하기
-                  </button>
+                <div className="mt-[200px] ml-auto">
+                  <div className="flex flex-col space-y-4">
+                    <button
+                      onClick={handleFoldClick}
+                      className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard"
+                    >
+                      접기
+                    </button>
+                    <button
+                      onClick={handleApplyClick}
+                      className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard"
+                    >
+                      신청하기
+                    </button>
                   </div>
                 </div>
               </div>
+            </div>
           )}
         </div>
       </div>

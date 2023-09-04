@@ -17,7 +17,7 @@ const NavBar = () => {
         <div className="container mx-auto flex justify-between items-center">
           {/* 로고 이미지 추가 */}
           <img
-            src='/logo.png'
+            src="/logo.png"
             alt="Agebloomers 로고"
             className="ml-[-30px] h-[110px] w-[220px]" // 이미지 크기 조절
           />

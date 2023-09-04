@@ -4,8 +4,9 @@ import { useState } from "react";
 const Form_carehelper = () => {
   const divStyle = {
     width: "600px",
+    marginTop: "200px",
     height: "600px",
-  };
+  }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [username, setUsername] = useState(""); // 입력된 비밀번호 상태 추가
