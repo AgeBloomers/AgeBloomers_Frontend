@@ -43,6 +43,12 @@ const FindCare_carehelper = () => {
       area: "지역 : 경북",
       type: "유형 : 요양보호사",
     },
+    {
+      id: 7,
+      title: "이름 : 루스",
+      area: "지역 : 경북",
+      type: "유형 : 요양보호사",
+    },
     // 다른 카드 데이터도 여기에 추가 가능
   ];
 
