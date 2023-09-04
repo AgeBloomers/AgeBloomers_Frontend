@@ -81,18 +81,19 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
   // 선택된 카드에 해당하는 데이터를 찾기
   const selectedCardData = cardData.find((card) => card.id === selectedCard);
 
-  // FindMore 컴포넌트 내에서 divStyle 초기화를 다음과 같이 수정
+  // divStyle 초기화
   const [divStyle, setDivStyle] = useState({
     width: "600px",
   });
 
-  // ...
+  // 모달 상태 초기화
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // divStyle의 height 값을 조절하는 useEffect 부분을 다음과 같이 수정
+  // divStyle의 height 값을 조절하는 useEffect
   useEffect(() => {
     // 컴포넌트 내용에 따라 높이를 동적으로 계산
-    const contentHeight =
-      document.getElementById("find-more-content").offsetHeight;
+    const contentHeight = document.getElementById("find-more-content")
+      .offsetHeight;
     setDivStyle((prevStyle) => ({
       ...prevStyle,
       height: `${contentHeight}px`,
@@ -104,19 +105,32 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
     onClose();
   };
 
+  const handleApplyClick = () => {
+    // "신청하기" 버튼 클릭 시 모달 열기
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    // 모달 닫기
+    setIsModalOpen(false);
+  };
+
+  const handleConfirmApply = () => {
+    // "신청하기" 모달에서 확인을 클릭했을 때 수행할 동작을 작성
+    // 여기서는 예시로 "신청 완료!" 메시지를 출력하도록 했습니다.
+    alert("신청 완료!");
+    handleModalClose(); // 모달 닫기
+  };
+
   return (
     <div>
       <div className="flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
           {selectedCardData && (
-            <div
-              key={selectedCardData.id}
-              className="p-4"
-              id="find-more-content"
-            >
-              <div className="bg-gray-100 rounded-3xl p-4 flex items-center ">
+            <div key={selectedCardData.id} className="p-4" id="find-more-content">
+              <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
                 <div>
-                  <h2 className="text-lg font-Pretendard font-semibold text-left">
+                 <h2 className="text-lg font-Pretendard font-semibold text-left">
                     {selectedCardData.title}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
@@ -145,17 +159,57 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
                   </h2>
                   <p className="text-gray-500">{selectedCardData.content}</p>
                 </div>
+                <div className="mt-[200px] ml-[20px]">
                 <button
                   onClick={handleFoldClick}
                   className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
                 >
                   접기
                 </button>
+                  <button
+                    onClick={handleApplyClick}
+                    className="bg-525151 text-FFD700 w-24 h-10 rounded-full hover:bg-00473E font-Pretendard ml-auto"
+                  >
+                    신청하기
+                  </button>
+                  </div>
+                </div>
               </div>
-            </div>
           )}
         </div>
       </div>
+
+      {/* "신청하기" 모달 */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-gray-600 bg-opacity-75 absolute inset-0"></div>
+          <div className="relative z-10 bg-white rounded-lg overflow-hidden w-full max-w-md">
+            <div className="p-4 sm:p-10 text-center">
+              <h3 className="mb-2 text-2xl font-bold font-Pretendard text-gray-800">
+                신청하기
+              </h3>
+              <p className="text-gray-500">신청하시겠습니까?</p>
+              <div className="mt-6 flex justify-center gap-x-4">
+                <button
+                  onClick={handleConfirmApply}
+                  type="button"
+                  className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-full border border-transparent font-semibold bg-525151 text-FFD700 font-Pretendard text-sm"
+                  href="javascript:;"
+                >
+                  확인
+                </button>
+                <button
+                  onClick={handleModalClose}
+                  type="button"
+                  className="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-full border border-transparent font-semibold bg-525151 text-FFD700 font-Pretendard text-sm"
+                >
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
