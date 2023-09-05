@@ -1,3 +1,4 @@
+// import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
 const Finder = () => {
@@ -6,6 +7,26 @@ const Finder = () => {
     marginTop: "200px",
     height: "600px",
   };
+
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
+
+  // const handleCheck = () => {
+  //   // 사용자 이름과 비밀번호 확인 로직 추가해야함
+
+  //   // 입력처리되면 모달 닫기
+  //   closeModal();
+  // };
+
 
   const FS = () => {
     window.location.href = "/Finder/FindSitter";
