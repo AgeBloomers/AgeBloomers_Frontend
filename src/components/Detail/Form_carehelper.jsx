@@ -13,12 +13,15 @@ const Form_carehelper = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
+  // Date 객체로 날짜 및 시간 값 저장
+  // const [registerDate, setRegisterDate] = useState(null);
+
   // 폼 유효성 상태 및 에러 메시지를 추가
   const [formValid, setFormValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleAgeChange = (e) => {
-    // 입력된 값이 숫자가 아니면 입력못하도록함
+    // 입력된 값이 숫자가 아니면 입력 못하도록 함
     const age = e.target.value;
     if (!/^\d*$/.test(age)) {
       return;
@@ -27,6 +30,7 @@ const Form_carehelper = () => {
     // 숫자만 입력되도록 설정
     e.target.value = age;
   };
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -45,7 +49,7 @@ const Form_carehelper = () => {
       !e.target.name.value ||
       !e.target.age.value ||
       !e.target.gender.value ||
-      !e.target.area.value ||
+      !e.target.address.value ||
       !e.target.contact.value ||
       !e.target.email.value ||
       !e.target.comment.value ||
@@ -57,78 +61,44 @@ const Form_carehelper = () => {
     }
 
     try {
-      const formattedStartDate =
-        selectedDate &&
-        selectedDate
-          .toLocaleString("en-US", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          })
-          .replace(
-            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)\s([APap][Mm])/,
-            (match, month, day, year, hours, minutes, seconds, ampm) => {
-              if (ampm.toLowerCase() === "pm") {
-                hours = (parseInt(hours, 10) + 12).toString().padStart(2, "0");
-              }
-              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-            }
-          );
-
-      const formattedEndDate =
-        endDate &&
-        endDate
-          .toLocaleString("en-US", {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-          })
-          .replace(
-            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)\s([APap][Mm])/,
-            (match, month, day, year, hours, minutes, seconds, ampm) => {
-              if (ampm.toLowerCase() === "pm") {
-                hours = (parseInt(hours, 10) + 12).toString().padStart(2, "0");
-              }
-              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-            }
-          );
+      // Date 객체를 문자열로 변환하여 서버에 전송할 수 있도록 함
+      const formattedStartDate = selectedDate.toISOString();
+      const formattedEndDate = endDate.toISOString();
+      const currentDateTime = new Date();
+      currentDateTime.setMinutes(
+        currentDateTime.getMinutes() - currentDateTime.getTimezoneOffset()
+      );
+      const formattedRegisterDate = currentDateTime.toISOString();
 
       const formData = {
-        type: e.target.type.value,
         name: e.target.name.value,
         age: e.target.age.value,
-        gender: e.target.gender.value, 
-        area: e.target.area.value,
+        gender: e.target.gender.value,
+        address: e.target.address.value,
         contact: e.target.contact.value,
         email: e.target.email.value,
-        // startDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        start_time: formattedStartDate,
-        // endDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        end_time: formattedEndDate,
-        comment: e.target.comment.value,
         password: e.target.password.value,
+        comment: e.target.comment.value,
+        startTime: formattedStartDate,
+        endTime: formattedEndDate,
+        registerDate: formattedRegisterDate,
       };
+
       // 데이터 출력
       console.log("전송할 데이터:", formData);
 
       const jsonData = JSON.stringify(formData);
 
-      const response = await fetch(
-        "http://43.201.76.22:8080/api/careinfo/babysitters",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: jsonData,
-        }
-      );
+      // URL에서 {type} 변수를 올바른 값으로 대체
+      const url = `http://43.201.76.22:8080/api/careinfo/upload/${e.target.type.value}`;
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonData,
+      });
 
       if (response.ok) {
         alert("신청이 완료되었습니다.");
@@ -141,7 +111,7 @@ const Form_carehelper = () => {
     }
     // 유효한 경우
     setFormValid(true); // 폼이 유효하다고 설정
-    setErrorMessage(""); //에러메시지
+    setErrorMessage(""); // 에러 메시지
   };
 
   return (
@@ -199,7 +169,7 @@ const Form_carehelper = () => {
               />
               <div className="ml-2">세</div>
               <div className="ml-2 text-ef4444">
-                * 보호자님은 어르신 정보를 입력해주세요
+              * 보호자님은 어르신 정보를 입력해주세요
               </div>
             </div>
 
@@ -222,7 +192,7 @@ const Form_carehelper = () => {
               <select
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
                 placeholder="지역을 선택해주세요"
-                name="area"
+                name="address"
               >
                 <option value="">지역을 선택해주세요</option>
                 <option value="">지역을 선택해주세요</option>
@@ -275,7 +245,7 @@ const Form_carehelper = () => {
                 dateFormat="yyyy/MM/dd h:mm aa"
                 showTimeSelect
                 timeFormat="HH:mm"
-                name="start_time"
+                name="startDate"
               />
               <div className="mt-2 ml-2">부터</div>
               <DatePicker
@@ -286,7 +256,7 @@ const Form_carehelper = () => {
                 dateFormat="yyyy/MM/dd h:mm aa"
                 showTimeSelect
                 timeFormat="HH:mm"
-                name="end_time"
+                name="endDate"
               />
               <p className="mt-2 ml-2">까지</p>
             </div>
