@@ -14,6 +14,20 @@ const Form_sitter = () => {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
 
+  // 폼 유효성 상태 및 에러 메시지를 추가
+  const [formValid, setFormValid] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleAgeChange = (e) => {
+    // 입력된 값이 숫자가 아니면 입력못하도록함
+    const age = e.target.value;
+    if (!/^\d*$/.test(age)) {
+      return;
+    }
+
+    // 숫자만 입력되도록 설정
+    e.target.value = age;
+  };
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -32,6 +46,26 @@ const Form_sitter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // 필수 입력 필드를 확인하고 유효성 검사
+    if (
+      !selectedDate ||
+      !endDate ||
+      !startTime ||
+      !endTime ||
+      !e.target.type.value ||
+      !e.target.name.value ||
+      !e.target.age.value ||
+      !e.target.gender.value ||
+      !e.target.area.value ||
+      !e.target.contact.value ||
+      !e.target.email.value ||
+      !e.target.comment.value ||
+      !e.target.password.value
+    ) {
+      setFormValid(false);
+      alert("모든 필드를 입력해주세요.");
+      return;
+    }
 
     try {
       const formData = {
@@ -42,10 +76,24 @@ const Form_sitter = () => {
         area: e.target.area.value,
         contact: e.target.contact.value,
         email: e.target.email.value,
-        startDate: selectedDate,
-        endDate: endDate,
-        startTime: startTime,
-        endTime: endTime,
+        // startDate에서 날짜 정보만 추출하여 넘김
+        startDate: selectedDate && selectedDate.toISOString().split("T")[0],
+        // endDate에서 날짜 정보만 추출하여 넘김
+        endDate: endDate && endDate.toISOString().split("T")[0],
+        // startTime에서 시간 정보만 추출하여 넘김
+        startTime:
+          startTime &&
+          startTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        // endTime에서 시간 정보만 추출하여 넘김
+        endTime:
+          endTime &&
+          endTime.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
         comment: e.target.comment.value,
         password: e.target.password.value,
       };
@@ -70,6 +118,9 @@ const Form_sitter = () => {
     } catch (error) {
       console.error("신청 실패:", error);
     }
+    // 유효한 경우
+    setFormValid(true); // 폼이 유효하다고 설정
+    setErrorMessage(""); //에러메시지
   };
 
   return (
@@ -85,9 +136,15 @@ const Form_sitter = () => {
               케어 지원 신청서 작성
             </p>
           </div>
+          {/* 폼 유효성 메시지를 표시 */}
+          {!formValid && (
+            <p className="ml-20 text-ef4444 text-left font-Pretendard">
+              {errorMessage}
+            </p>
+          )}
 
           <form onSubmit={handleSubmit}>
-            <p className="mt-10 ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="mt-10 ml-20 text-5C5C5C text-left font-Pretendard">
               유형
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
@@ -98,9 +155,9 @@ const Form_sitter = () => {
                   <input type="radio" name="type" value="부모" /> 부모
                 </label>
               </div>
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               이름
               <input
                 type="text"
@@ -108,25 +165,26 @@ const Form_sitter = () => {
                 className="border border-gray-300 rounded-lg ml-10 p-2 w-96"
                 placeholder="부모님은 자녀 이름을 입력해주세요"
               />
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard flex items-center">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard flex items-center">
               나이
               <input
-                type="text"
+                type="number"
                 name="age"
                 className="border border-gray-300 rounded-lg ml-10 p-2 w-20"
                 placeholder=""
+                onChange={handleAgeChange}
               />
               <div className="ml-2">세</div>
               <div className="ml-2 text-ef4444">
                 * 부모님은 자녀 정보를 입력해주세요
               </div>
-            </p>
+            </div>
 
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
 
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               성별
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
@@ -136,14 +194,14 @@ const Form_sitter = () => {
                   <input type="radio" name="gender" value="남성" /> 남성
                 </label>
               </div>
-            </p>
-            {/* "지역" 입력 요소에 name 속성 추가 */}
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            </div>
+            <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               지역
               <select
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
                 placeholder="지역을 선택해주세요"
-                name="area" // name 속성 추가
+                name="area"
               >
                 <option value="">지역을 선택해주세요</option>
                 <option value="">지역을 선택해주세요</option>
@@ -164,19 +222,19 @@ const Form_sitter = () => {
                 <option value="경남">경남</option>
                 <option value="제주">제주</option>
               </select>
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               연락처
               <input
-                type="text"
+                type="number"
                 name="contact"
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
-                placeholder="010-0000-0000 형식으로 입력해주세요"
+                placeholder="- 없이 01012345678 형식으로 입력해주세요"
               />
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               이메일
               <input
                 type="email"
@@ -184,7 +242,7 @@ const Form_sitter = () => {
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
                 placeholder="ex) example@naver.com"
               />
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
 
             {/* "희망 시간 선택" 부분 수정 */}
@@ -198,7 +256,7 @@ const Form_sitter = () => {
                 dateFormat="yyyy/MM/dd"
                 name="startDate"
               />
-              <p className="mt-2 ml-2">부터</p>
+              <div className="mt-2 ml-2">부터</div>
               <DatePicker
                 className="border border-gray-300 rounded-lg ml-2 p-2 w-28 text-sm"
                 placeholderText="종료일 선택"
@@ -209,7 +267,7 @@ const Form_sitter = () => {
               />
               <p className="mt-2 ml-2">까지</p>
             </div>
-
+            <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
             {/* 시간 선택 */}
             <div className="ml-20 text-5C5C5C text-left font-Pretendard flex">
               희망 시간 선택
@@ -224,7 +282,7 @@ const Form_sitter = () => {
                 placeholderText="시작 시간 선택"
                 name="startTime"
               />
-              <p className="mt-2 ml-2">부터</p>
+              <div className="mt-2 ml-2">부터</div>
               <DatePicker
                 selected={endTime}
                 onChange={handleEndTimeChange}
@@ -236,10 +294,10 @@ const Form_sitter = () => {
                 placeholderText="종료 시간 선택"
                 name="endTime"
               />
-              <p className="mt-2 ml-2">까지</p>
+              <div className="mt-2 ml-2">까지</div>
             </div>
-
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               코멘트
               <input
                 type="text"
@@ -247,9 +305,9 @@ const Form_sitter = () => {
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
                 placeholder="특이사항, 바라는점, 약력 등 무엇이든 남겨보세요 !"
               />
-            </p>
+            </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            <p className="ml-20 text-5C5C5C text-left font-Pretendard">
+            <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               비밀번호
               <input
                 type="password"
@@ -257,7 +315,7 @@ const Form_sitter = () => {
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-80"
                 placeholder="신청 조회용 비밀번호를 입력해주세요"
               />
-            </p>
+            </div>
 
             {/* "신청하기" 버튼 */}
             <div className="mt-4 ml-20 mr-10 mt-[40px] text-right">
