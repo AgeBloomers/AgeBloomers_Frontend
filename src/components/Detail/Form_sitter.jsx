@@ -63,7 +63,7 @@ const Form_sitter = () => {
       !e.target.password.value
     ) {
       setFormValid(false);
-      alert("모든 필드를 입력해주세요.");
+      alert("신청서의 모든 정보를 입력해주세요.");
       return;
     }
 
