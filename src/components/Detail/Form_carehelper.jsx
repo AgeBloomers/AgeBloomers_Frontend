@@ -11,8 +11,6 @@ const Form_carehelper = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
 
   // 폼 유효성 상태 및 에러 메시지를 추가
   const [formValid, setFormValid] = useState(false);
@@ -36,22 +34,12 @@ const Form_carehelper = () => {
     setEndDate(date);
   };
 
-  const handleStartTimeChange = (time) => {
-    setStartTime(time);
-  };
-
-  const handleEndTimeChange = (time) => {
-    setEndTime(time);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 필수 입력 필드를 확인하고 유효성 검사
     if (
       !selectedDate ||
       !endDate ||
-      !startTime ||
-      !endTime ||
       !e.target.type.value ||
       !e.target.name.value ||
       !e.target.age.value ||
@@ -68,6 +56,48 @@ const Form_carehelper = () => {
     }
 
     try {
+      const formattedStartDate =
+        selectedDate &&
+        selectedDate
+          .toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })
+          .replace(
+            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)\s([APap][Mm])/,
+            (match, month, day, year, hours, minutes, seconds, ampm) => {
+              if (ampm.toLowerCase() === "pm") {
+                hours = (parseInt(hours, 10) + 12).toString().padStart(2, "0");
+              }
+              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            }
+          );
+
+      const formattedEndDate =
+        endDate &&
+        endDate
+          .toLocaleString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          })
+          .replace(
+            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)\s([APap][Mm])/,
+            (match, month, day, year, hours, minutes, seconds, ampm) => {
+              if (ampm.toLowerCase() === "pm") {
+                hours = (parseInt(hours, 10) + 12).toString().padStart(2, "0");
+              }
+              return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+            }
+          );
+
       const formData = {
         type: e.target.type.value,
         name: e.target.name.value,
@@ -76,24 +106,10 @@ const Form_carehelper = () => {
         area: e.target.area.value,
         contact: e.target.contact.value,
         email: e.target.email.value,
-        // startDate에서 날짜 정보만 추출하여 넘김
-        startDate: selectedDate && selectedDate.toISOString().split("T")[0],
-        // endDate에서 날짜 정보만 추출하여 넘김
-        endDate: endDate && endDate.toISOString().split("T")[0],
-        // startTime에서 시간 정보만 추출하여 넘김
-        startTime:
-          startTime &&
-          startTime.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          }),
-        // endTime에서 시간 정보만 추출하여 넘김
-        endTime:
-          endTime &&
-          endTime.toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-          }),
+        // startDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
+        startDate: formattedStartDate,
+        // endDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
+        endDate: formattedEndDate,
         comment: e.target.comment.value,
         password: e.target.password.value,
       };
@@ -102,13 +118,16 @@ const Form_carehelper = () => {
 
       const jsonData = JSON.stringify(formData);
 
-      const response = await fetch("http://43.201.76.22:8080/api/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonData,
-      });
+      const response = await fetch(
+        "http://43.201.76.22:8080/api/careinfo/babysitters",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: jsonData,
+        }
+      );
 
       if (response.ok) {
         alert("신청이 완료되었습니다.");
@@ -244,56 +263,30 @@ const Form_carehelper = () => {
               />
             </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-
             <div className="ml-20 text-5C5C5C text-left font-Pretendard flex">
-              희망 날짜 선택
+              희망 날짜
               <DatePicker
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-28 text-sm"
-                placeholderText="시작일 선택"
+                className="border border-gray-300 rounded-lg ml-7 p-2 w-36 text-sm"
+                placeholderText="시작 날짜 및 시간 선택"
                 selected={selectedDate}
                 onChange={handleDateChange}
-                dateFormat="yyyy/MM/dd"
+                dateFormat="yyyy/MM/dd h:mm aa"
+                showTimeSelect
+                timeFormat="HH:mm"
                 name="startDate"
               />
               <div className="mt-2 ml-2">부터</div>
               <DatePicker
-                className="border border-gray-300 rounded-lg ml-2 p-2 w-28 text-sm"
-                placeholderText="종료일 선택"
+                className="border border-gray-300 rounded-lg ml-2 p-2 w-36 text-sm"
+                placeholderText="종료 날짜 및 시간 선택"
                 selected={endDate}
                 onChange={handleEndDateChange}
-                dateFormat="yyyy/MM/dd"
+                dateFormat="yyyy/MM/dd h:mm aa"
+                showTimeSelect
+                timeFormat="HH:mm"
                 name="endDate"
               />
               <p className="mt-2 ml-2">까지</p>
-            </div>
-            <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
-            {/* 시간 선택 */}
-            <div className="ml-20 text-5C5C5C text-left font-Pretendard flex">
-              희망 시간 선택
-              <DatePicker
-                selected={startTime}
-                onChange={handleStartTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                dateFormat="h:mm aa"
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-24 text-sm"
-                timeFormat="HH:mm"
-                placeholderText="시작 시간 선택"
-                name="startTime"
-              />
-              <div className="mt-2 ml-2">부터</div>
-              <DatePicker
-                selected={endTime}
-                onChange={handleEndTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                dateFormat="h:mm aa"
-                className="border border-gray-300 rounded-lg ml-2 p-2 w-24 text-sm"
-                timeFormat="HH:mm"
-                placeholderText="종료 시간 선택"
-                name="endTime"
-              />
-              <div className="mt-2 ml-2">까지</div>
             </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
             <div className="ml-20 text-5C5C5C text-left font-Pretendard">

@@ -11,8 +11,6 @@ const Form_sitter = () => {
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // const [startTime, setStartTime] = useState(null);
-  // const [endTime, setEndTime] = useState(null);
 
   // 폼 유효성 상태 및 에러 메시지를 추가
   const [formValid, setFormValid] = useState(false);
@@ -35,14 +33,6 @@ const Form_sitter = () => {
   const handleEndDateChange = (date) => {
     setEndDate(date);
   };
-
-  // const handleStartTimeChange = (time) => {
-  //   setStartTime(time);
-  // };
-
-  // const handleEndTimeChange = (time) => {
-  //   setEndTime(time);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -122,20 +112,6 @@ const Form_sitter = () => {
         startDate: formattedStartDate,
         // endDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
         endDate: formattedEndDate,
-        // // startTime에서 시간 정보만 추출하여 넘김
-        // startTime:
-        //   startTime &&
-        //   startTime.toLocaleTimeString([], {
-        //     hour: "2-digit",
-        //     minute: "2-digit",
-        //   }),
-        // // endTime에서 시간 정보만 추출하여 넘김
-        // endTime:
-        //   endTime &&
-        //   endTime.toLocaleTimeString([], {
-        //     hour: "2-digit",
-        //     minute: "2-digit",
-        //   }),
         comment: e.target.comment.value,
         password: e.target.password.value,
       };
@@ -314,35 +290,6 @@ const Form_sitter = () => {
               />
               <p className="mt-2 ml-2">까지</p>
             </div>
-            {/* <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div> */}
-            {/* 시간 선택
-            <div className="ml-20 text-5C5C5C text-left font-Pretendard flex">
-              희망 시간 선택
-              <DatePicker
-                selected={startTime}
-                onChange={handleStartTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                dateFormat="h:mm aa"
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-24 text-sm"
-                timeFormat="HH:mm"
-                placeholderText="시작 시간 선택"
-                name="startTime"
-              />
-              <div className="mt-2 ml-2">부터</div>
-              <DatePicker
-                selected={endTime}
-                onChange={handleEndTimeChange}
-                showTimeSelect
-                showTimeSelectOnly
-                dateFormat="h:mm aa"
-                className="border border-gray-300 rounded-lg ml-2 p-2 w-24 text-sm"
-                timeFormat="HH:mm"
-                placeholderText="종료 시간 선택"
-                name="endTime"
-              />
-              <div className="mt-2 ml-2">까지</div>
-            </div> */}
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
             <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               코멘트
