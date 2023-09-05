@@ -110,9 +110,9 @@ const Form_sitter = () => {
         contact: e.target.contact.value,
         email: e.target.email.value,
         // startDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        startDate: formattedStartDate,
+        start_time: formattedStartDate,
         // endDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        endDate: formattedEndDate,
+        end_time: formattedEndDate,
         comment: e.target.comment.value,
         password: e.target.password.value,
       };
@@ -171,11 +171,11 @@ const Form_sitter = () => {
               유형
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="type" value="베이비시터" />{" "}
+                  <input type="radio" name="type" value="Babysitters" />{" "}
                   베이비시터
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="type" value="부모" /> 부모
+                  <input type="radio" name="type" value="Parents" /> 부모
                 </label>
               </div>
             </div>
@@ -211,10 +211,10 @@ const Form_sitter = () => {
               성별
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="gender" value="여성" /> 여성
+                  <input type="radio" name="gender" value="F" /> 여성
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="gender" value="남성" /> 남성
+                  <input type="radio" name="gender" value="M" /> 남성
                 </label>
               </div>
             </div>

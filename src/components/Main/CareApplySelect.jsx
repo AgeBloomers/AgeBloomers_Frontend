@@ -1,7 +1,7 @@
 import NavBar from "../Main/NavBar";
 import { useState } from "react";
 
-const Form_carehelper = () => {
+const CareApplySelect = () => {
   const divStyle = {
     width: "600px",
     marginTop: "200px",
@@ -172,4 +172,4 @@ const Form_carehelper = () => {
   );
 };
 
-export default Form_carehelper;
+export default CareApplySelect;

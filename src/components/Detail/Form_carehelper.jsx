@@ -103,14 +103,14 @@ const Form_carehelper = () => {
         type: e.target.type.value,
         name: e.target.name.value,
         age: e.target.age.value,
-        gender: e.target.gender.value,
+        gender: e.target.gender.value, 
         area: e.target.area.value,
         contact: e.target.contact.value,
         email: e.target.email.value,
         // startDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        startDate: formattedStartDate,
+        start_time: formattedStartDate,
         // endDate에서 날짜 정보와 시간 정보 모두 추출하여 넘김
-        endDate: formattedEndDate,
+        end_time: formattedEndDate,
         comment: e.target.comment.value,
         password: e.target.password.value,
       };
@@ -169,11 +169,11 @@ const Form_carehelper = () => {
               유형
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="type" value="요양보호사" />{" "}
+                  <input type="radio" name="type" value="Caregivers" />{" "}
                   요양보호사
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="type" value="보호자" /> 보호자(어르신)
+                  <input type="radio" name="type" value="Elders" /> 보호자(어르신)
                 </label>
               </div>
             </div>
@@ -209,10 +209,10 @@ const Form_carehelper = () => {
               성별
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="gender" value="여성" /> 여성
+                  <input type="radio" name="gender" value="F" /> 여성
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="gender" value="남성" /> 남성
+                  <input type="radio" name="gender" value="M" /> 남성
                 </label>
               </div>
             </div>
@@ -275,7 +275,7 @@ const Form_carehelper = () => {
                 dateFormat="yyyy/MM/dd h:mm aa"
                 showTimeSelect
                 timeFormat="HH:mm"
-                name="startDate"
+                name="start_time"
               />
               <div className="mt-2 ml-2">부터</div>
               <DatePicker
@@ -286,7 +286,7 @@ const Form_carehelper = () => {
                 dateFormat="yyyy/MM/dd h:mm aa"
                 showTimeSelect
                 timeFormat="HH:mm"
-                name="endDate"
+                name="end_time"
               />
               <p className="mt-2 ml-2">까지</p>
             </div>
