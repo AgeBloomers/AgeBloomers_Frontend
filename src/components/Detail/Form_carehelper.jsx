@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../Main/NavBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -8,7 +9,7 @@ const Form_carehelper = () => {
     width: "600px",
     height: "1100px",
   };
-
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -131,6 +132,7 @@ const Form_carehelper = () => {
 
       if (response.ok) {
         alert("신청이 완료되었습니다.");
+        navigate("/");
       } else {
         console.error("신청 실패:", response.status, response.statusText);
       }
