@@ -27,7 +27,7 @@ function App() {
         <Route path="/Finder/FindCareHelper/FindMore/ApplyComplete" element={<ApplyComplete />}></Route>
 
         {/* 메인페이지 */}
-        <Route path="/MainPage" element={<MainPage />}></Route>
+        <Route path="/" element={<MainPage />}></Route>
       </Routes>
     </BrowserRouter>
   );
