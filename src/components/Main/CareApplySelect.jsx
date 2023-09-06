@@ -2,6 +2,7 @@ import NavBar from "../Main/NavBar";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; // useNavigate 추가
 import Applylist from "../Detail/Applylist";
+import FindSitter_Sitter from "../Detail/FindSitter_Sitter";
 // import {useUserData} from "../Detail/UserDataContext";
 
 const CareApplySelect = () => {
@@ -79,6 +80,7 @@ const CareApplySelect = () => {
     <>
     {userData != null && (
       <Applylist userData={userData}/>
+
     )}
 
     {userData === null && (

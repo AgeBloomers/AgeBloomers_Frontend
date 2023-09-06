@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+import FindSitter_Sitter from "../Detail/FindSitter_Sitter";
 
 const Finder = () => {
+  const [userData, setUserData] = useState(null);
+  const [nextPage, setNextPage] = useState(false);
+
   const divStyle = {
     width: "600px",
     marginTop: "200px",
@@ -26,6 +30,7 @@ const Finder = () => {
       setIsModalOpen(true);
       alert("사용자 인증을 해주세요.");
     } else {
+      setNextPage(true)
       window.location.href = "/Finder/FindSitter";
     }
   };
@@ -66,6 +71,8 @@ const Finder = () => {
         setIsLoggedIn(true); // 사용자 인증 상태 변경
 
         const data = await response.json();
+        setUserData(data);
+
         // setUserData(data);
         console.log(data);
 
@@ -86,6 +93,12 @@ const Finder = () => {
   }, []);
 
   return (
+    <>
+    {nextPage === true && (
+      <FindSitter_Sitter userData={userData}/>
+    )}
+
+
     <div>
       <NavBar />
       <div className="flex justify-center items-center min-h-screen mt-[-200px]">
@@ -173,6 +186,7 @@ const Finder = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

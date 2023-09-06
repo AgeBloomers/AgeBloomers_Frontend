@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import FindMore_Sitter from "./FindMore_Sitter";
 
-const FindSitter_Sitter = () => {
+const FindSitter_Sitter = ({userData}) => {
+  console.log(userData)
+  // const type = Object.keys(userData)[2];
+  // const id = parseInt(Object.values(userData)[2].id, 10);
+  // const name = Object.values(userData)[2].name;
+  // const typeAge = Object.values(userData)[2].age;
+  // const typeComment = Object.values(userData)[2].comment;
+
   const [selectedCard, setSelectedCard] = useState(null);
   const [cards, setCards] = useState([]);
 
@@ -82,13 +89,13 @@ const FindSitter_Sitter = () => {
                 <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
                   <div>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      이름 : {card.name}
+                      {/* 이름 : {name} */}
                     </h2>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      나이 : {card.age}
+                      {/* 나이 : {typeAge} */}
                     </h2>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      주소 : {card.address}
+                      {/* 주소 : {typeComment} */}
                     </h2>
                     <p className="text-gray-500">{card.content}</p>
                   </div>

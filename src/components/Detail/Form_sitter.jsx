@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../Main/NavBar";
 import DatePicker from "react-datepicker";
@@ -12,6 +12,11 @@ const Form_sitter = () => {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+
+  useEffect(() => {
+
+  }, [])
 
   // Date 객체로 날짜 및 시간 값 저장
   // const [registerDate, setRegisterDate] = useState(null);
@@ -62,6 +67,7 @@ const Form_sitter = () => {
 
     try {
       // Date 객체를 문자열로 변환하여 서버에 전송할 수 있도록 함
+      const data = e.target.type.value
       const formattedStartDate = selectedDate.toISOString();
       const formattedEndDate = endDate.toISOString();
       const currentDateTime = new Date();
@@ -90,8 +96,8 @@ const Form_sitter = () => {
       const jsonData = JSON.stringify(formData);
 
       // URL에서 {type} 변수를 올바른 값으로 대체
-      const url = `http://43.201.76.22:8080/api/careinfo/upload/${e.target.type.value}`;
-
+      const url = `http://43.201.76.22:8080/api/careinfo/upload/${data}`;
+  
       const response = await fetch(url, {
         method: "POST",
         headers: {
