@@ -1,82 +1,29 @@
 import { useState, useEffect } from "react";
 
 const FindMore_Sitter = ({ onClose, selectedCard }) => {
-  // 카드 데이터 배열
-  const cardData = [
-    {
-      id: 1,
-      title: "이름 : 김수정",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-      age: "나이 : 23세",
-      sex: "성별 : 여자",
-      call: "연락처 : 010-0000-0000",
-      day: "희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : g",
-    },
-    {
-      id: 2,
-      title: "이름 : 이수연",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-      age: "나이 : 22세",
-      sex: "성별 : 부모",
-      call: "연락처 : 010-0000-0000",
-      day: "희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : ㅇㅇㅇ",
-    },
-    {
-      id: 3,
-      title: "이름 : 이예지",
-      area: "지역 : 대구",
-      type: "유형 : 베이비시터",
-      age: "나이 : 24세",
-      sex: "성별 : 여자",
-      call: "연락처 : 010-0000-0000",
-      day: " 희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : ㅇㅇㅇ",
-    },
-    {
-      id: 4,
-      title: "이름 : 조혜원",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-      age: "나이 : 23세",
-      sex: "성별 : 여자",
-      call: "연락처 : 010-0000-0000",
-      day: "희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : ㅇㅇㅇ",
-    },
-    {
-      id: 5,
-      title: "이름 : 두부",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-      age: "나이 : 27세",
-      sex: "성별 : 여자",
-      call: "연락처 : 010-0000-0000",
-      day: "업무 희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : ㅇㅇㅇ",
-    },
-    {
-      id: 6,
-      title: "이름 : 루스",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-      age: "나이 : 27세",
-      sex: "성별 : 여자",
-      call: "연락처 : 010-0000-0000",
-      day: "업무 희망일 : 2023/07/23 ~ 2023/09/03",
-      time: "희망 시간 : 09:00 ~ 17:00",
-      coment: "코멘트 : 9시부터 17시는 점심시간을 포함한 시간입니다.",
-    },
-    // 더미임
-  ];
+   // 카드 데이터 배열
+   const [cardData, setCardData] = useState([]);
+
+   // useEffect를 사용하여 데이터를 가져옵니다.
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await fetch("http://43.201.76.22:8080/api/babysitters"); // API 엔드포인트를 사용자의 서버 주소로 변경하세요.
+         if (response.ok) {
+           const data = await response.json();
+           setCardData(data);
+         } else {
+           console.error("데이터를 불러올 수 없습니다.");
+         }
+       } catch (error) {
+         console.error("데이터를 불러오는 중 오류 발생:", error);
+       }
+     };
+ 
+     fetchData();
+   }, []); // [] 안에 의존성 배열을 빈 배열로 두어 한 번만 데이터를 불러오도록 합니다.
+ 
+   // ... 나머지 코드는 동일합니다
 
   // 선택된 카드에 해당하는 데이터를 찾기
   const selectedCardData = cardData.find((card) => card.id === selectedCard);

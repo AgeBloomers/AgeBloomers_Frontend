@@ -6,54 +6,40 @@ const FindSitter_Sitter = () => {
   const [selectedCard, setSelectedCard] = useState(null);
 
   // 카드 데이터 배열
-  const cards = [
-    {
-      id: 1,
-      title: "이름 : 김수정",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-    },
-    {
-      id: 2,
-      title: "이름 : 이수연",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-    },
-    {
-      id: 3,
-      title: "이름 : 이예지",
-      area: "지역 : 대구",
-      type: "유형 : 베이비시터",
-    },
-    {
-      id: 4,
-      title: "이름 : 조혜원",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-    },
-    {
-      id: 5,
-      title: "이름 : 두부",
-      area: "지역 : 대구",
-      type: "유형 : 베이비시터",
-    },
-    {
-      id: 6,
-      title: "이름 : 루스",
-      area: "지역 : 경북",
-      type: "유형 : 베이비시터",
-    },
-    // 더미임
-  ];
+  const [cards, setCards] = useState([]); // API에서 가져온 카드 데이터를 저장할 상태
 
-  // 카드를 클릭했을 때 실행되는 함수
-  const handleCardClick = (id) => {
-    setSelectedCard(id); // 선택된 카드의 ID를 저장하여 FindMore를 렌더링하게 함
+  // API에서 데이터를 가져오는 함수
+  const fetchDataFromAPI = async () => {
+    try {
+      // API 엔드포인트 URL 설정 (실제 URL로 대체해야 함)
+      const apiUrl = "http://43.201.76.22:8080/api/babysitters"; // 예시 URL
+
+      console.log
+      // API에서 데이터 가져오기
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error("API 요청에 실패했습니다.");
+      }
+
+      // JSON 데이터 파싱
+      const data = await response.json();
+      setCards(data); // 데이터를 cards 상태에 저장
+    } catch (error) {
+      console.error("데이터 가져오기 실패:", error);
+    }
   };
 
-  // FindMore 컴포넌트를 닫는 함수
+  // 컴포넌트가 마운트될 때 API에서 데이터 가져오기
+  useEffect(() => {
+    fetchDataFromAPI();
+  }, []);
+
+  const handleCardClick = (id) => {
+    setSelectedCard(id);
+  };
+
   const handleExpandClose = () => {
-    setSelectedCard(null); // 선택된 카드의 ID를 초기화하여 FindMore를 닫음
+    setSelectedCard(null);
   };
 
   // 카드 개수에 따라 divStyle의 height 계산
@@ -89,13 +75,13 @@ const FindSitter_Sitter = () => {
                 <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
                   <div>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      {card.title}
+                      이름 : {card.name}
                     </h2>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      {card.area}
+                      나이 : {card.age}  
                     </h2>
                     <h2 className="text-lg font-Pretendard font-semibold text-left">
-                      {card.type}
+                      주소 : {card.address}
                     </h2>
                     <p className="text-gray-500">{card.content}</p>
                   </div>
