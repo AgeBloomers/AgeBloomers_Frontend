@@ -1,11 +1,15 @@
 import NavBar from "../Main/NavBar";
+// import {useUserData} from "../Detail/UserDataContext";
 
-const Applylist = () => {
+const Applylist = ({userData}) => {
+
+  console.log("Applylist", userData);
   const divStyle = {
     width: "600px",
     marginTop: "200px",
     height: "800px",
   };
+
 
   const handleEdit = () => {
     // 수정 버튼을 클릭할 때 수행할 작업 추가.
@@ -30,7 +34,12 @@ const Applylist = () => {
             </p>
             <p className="text-left font-Pretendard text-2xl">신청서</p>
             <div className="mt-20 text-5C5C5C  font-Pretendard">
-              이곳에 신청서 폼 가져옴
+              이름 : {userData.babysitters.name} {/*babyitters를 수동으로 넣는게 아니라 이름과 패스워드를 비교해서 테이블을 찾고 해당 테이블의 이름을 적어야함*/}
+              <br/>
+              나이 : {userData.babysitters.age}
+              <br/>
+              주소 : {userData.babysitters.address}
+
             </div>
           </div>
           <div className="flex flex justify-end mr-20 mt-[150px]">

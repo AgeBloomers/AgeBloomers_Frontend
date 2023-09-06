@@ -13,6 +13,7 @@ const Finder = () => {
   const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 사용자 인증 상태 추가
+  // const [userData, setUserData] = useState({});
 
   // 모달 닫기
   const closeModal = () => {
@@ -57,13 +58,17 @@ const Finder = () => {
         },
         // body: JSON.stringify({ password }), // JSON 형태로 데이터를 보내도록 수정
       });
-
       // 서버로부터 응답을 받았을 때 처리
       if (response.status === 200) {
         // 로그인 성공
         alert("로그인 성공!");
         closeModal(); // 모달 닫기
         setIsLoggedIn(true); // 사용자 인증 상태 변경
+
+        const data = await response.json();
+        // setUserData(data);
+        console.log(data);
+
       } else {
         // 로그인 실패
         alert("로그인 실패: 사용자 이름 또는 비밀번호가 일치하지 않습니다.");

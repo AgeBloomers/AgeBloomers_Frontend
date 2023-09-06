@@ -1,32 +1,40 @@
+// import { data } from "autoprefixer";
+import { data } from "autoprefixer";
 import { useState, useEffect } from "react";
 
-const FindMore_Sitter = ({ onClose, selectedCard }) => {
-   // 카드 데이터 배열
-   const [cardData, setCardData] = useState([]);
+const FindMore_Sitter = async ({ onClose, selectedCard }) => {
+  // const handleDetailClick = async () => {
+    if (selectedCard !== null) {
+      try {
+        const apiUrl = "http://43.201.76.22:8080/api/babysitters/details/" + "Babysitters/" + selectedCard;
 
-   // useEffect를 사용하여 데이터를 가져옵니다.
-   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         const response = await fetch("http://43.201.76.22:8080/api/babysitters"); // API 엔드포인트를 사용자의 서버 주소로 변경하세요.
-         if (response.ok) {
-           const data = await response.json();
-           setCardData(data);
-         } else {
-           console.error("데이터를 불러올 수 없습니다.");
-         }
-       } catch (error) {
-         console.error("데이터를 불러오는 중 오류 발생:", error);
-       }
-     };
- 
-     fetchData();
-   }, []); // [] 안에 의존성 배열을 빈 배열로 두어 한 번만 데이터를 불러오도록 합니다.
- 
-   // ... 나머지 코드는 동일합니다
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }).then((response) => response.json()).then((data) => {
+          const newData = data;
+          console.log(newData);
+        }).catch((error) => {
+          console.log(error);
+        });
+
+        if (!response.ok) {
+          throw new Error("상세 정보 요청에 실패했습니다.");
+        }
+
+        // API로부터 상세 정보를 얻은 후, 원하는 동작 수행
+        // 예시로 FindMore_Sitter 컴포넌트를 열어봅니다.
+        // setSelectedCard(null); // 상세보기를 누르면 상세 정보를 보여주는 컴포넌트를 열고, 다시 목록으로 돌아오면 선택한 카드 초기화
+      } catch (error) {
+        console.error("상세 정보 요청 실패:", error);
+      }
+    }
+  // };
 
   // 선택된 카드에 해당하는 데이터를 찾기
-  const selectedCardData = cardData.find((card) => card.id === selectedCard);
+  // const selectedCardData = cardData.find((card) => card.id === selectedCard);
 
   // divStyle 초기화
   const [divStyle, setDivStyle] = useState({
@@ -72,42 +80,42 @@ const FindMore_Sitter = ({ onClose, selectedCard }) => {
     <div>
       <div className="flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
-          {selectedCardData && (
+          {data && (
             <div
-              key={selectedCardData.id}
+              key={data.id}
               className="p-4"
               id="find-more-content"
             >
-              <div className="bg-gray-100 rounded-3xl p-4 flex items-center">
+              <div data="bg-gray-100 rounded-3xl p-4 flex items-center">
                 <div>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.title}
+                    {data.title}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.area}
+                    {data.area}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.type}
+                    {data.type}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.age}
+                    {data.age}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.sex}
+                    {data.sex}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.call}
+                    {data.call}
+                  </h2>
+                  {/* <h2 className="text-lg font-Pretendard font-semibold text-left">
+                    {newData.day}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.day}
+                    {newData.time}
                   </h2>
                   <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.time}
-                  </h2>
-                  <h2 className="text-lg font-Pretendard font-semibold text-left">
-                    {selectedCardData.coment}
-                  </h2>
-                  <p className="text-gray-500">{selectedCardData.content}</p>
+                    {newData.comment}
+                  </h2> */}
+                  <p className="text-gray-500">{selectedCard.content}</p>
                 </div>
                 <div className="mt-[200px] ml-auto">
                   <div className="flex flex-col space-y-4">
