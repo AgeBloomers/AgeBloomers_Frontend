@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import FindSitter_Sitter from "../Detail/FindSitter_Sitter";
 
 const Finder = () => {
-  const [userData, setUserData] = useState(null);
+  // const [userData, setUserData] = useState(null);
   const [nextPage, setNextPage] = useState(false);
 
   const divStyle = {
@@ -71,7 +71,7 @@ const Finder = () => {
         setIsLoggedIn(true); // 사용자 인증 상태 변경
 
         const data = await response.json();
-        setUserData(data);
+        // setUserData(data);
 
         // setUserData(data);
         console.log(data);
@@ -93,10 +93,10 @@ const Finder = () => {
   }, []);
 
   return (
-    <>
-    {nextPage === true && (
-      <FindSitter_Sitter userData={userData}/>
-    )}
+    // <>
+    // {nextPage === true && (
+    //   <FindSitter_Sitter userData={userData}/>
+    // )}
 
 
     <div>
@@ -186,7 +186,7 @@ const Finder = () => {
         </div>
       )}
     </div>
-    </>
+    // </>
   );
 };
 

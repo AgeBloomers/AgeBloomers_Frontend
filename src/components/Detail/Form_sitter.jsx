@@ -145,11 +145,11 @@ const Form_sitter = () => {
               유형
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="type" value="Babysitters" />{" "}
+                  <input type="radio" name="type" value="babysitters" />{" "}
                   베이비시터
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="type" value="Parents" /> 부모
+                  <input type="radio" name="type" value="parents" /> 부모
                 </label>
               </div>
             </div>

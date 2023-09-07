@@ -139,11 +139,11 @@ const Form_carehelper = () => {
               유형
               <div className="ml-20 -mt-5">
                 <label className="mr-4 ml-20">
-                  <input type="radio" name="type" value="Caregivers" />{" "}
+                  <input type="radio" name="type" value="caregivers" />{" "}
                   요양보호사
                 </label>
                 <label className="ml-20">
-                  <input type="radio" name="type" value="Elders" /> 보호자(어르신)
+                  <input type="radio" name="type" value="elders" /> 보호자(어르신)
                 </label>
               </div>
             </div>

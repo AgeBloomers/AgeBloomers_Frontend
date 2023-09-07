@@ -189,51 +189,87 @@ const Applylist = ({ userData }) => {
                   />
                   <span>남성</span>
                 </label>
-                <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
               </div>
-              주소:
-              <input
-                type="text"
-                value={editedAddress}
-                onChange={(e) => setEditedAddress(e.target.value)}
-              />
               <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
-              연락처:
-              <input
-                type="text"
-                value={editedContact}
-                onChange={(e) => setEditedContact(e.target.value)}
-              />
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
+                주소:
+                <select
+                  value={editedAddress}
+                  onChange={(e) => setEditedAddress(e.target.value)}
+                  className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
+                >
+                  <option value="">지역을 선택해주세요</option>
+                  <option value="서울">서울</option>
+                  <option value="부산">부산</option>
+                  <option value="대구">대구</option>
+                  <option value="인천">인천</option>
+                  <option value="광주">광주</option>
+                  <option value="대전">대전</option>
+                  <option value="세종">세종</option>
+                  <option value="경기">경기</option>
+                  <option value="강원">강원</option>
+                  <option value="충북">충북</option>
+                  <option value="충남">충남</option>
+                  <option value="전북">전북</option>
+                  <option value="전남">전남</option>
+                  <option value="경북">경북</option>
+                  <option value="경남">경남</option>
+                  <option value="제주">제주</option>
+                </select>
+              </div>
               <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
-              이메일:
-              <input
-                type="email"
-                value={editedEmail}
-                onChange={(e) => setEditedEmail(e.target.value)}
-              />
-              <br />
-              비밀번호:
-              <input
-                type="password"
-                value={editedPassword}
-                onChange={(e) => setEditedPassword(e.target.value)}
-              />
-              <br />
-              코멘트:
-              <textarea
-                value={editedComment}
-                onChange={(e) => setEditedComment(e.target.value)}
-              />
-              <br />
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
+                연락처:
+                <input
+                  type="number"
+                  value={editedContact}
+                  className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
+                  onChange={(e) => setEditedContact(e.target.value)}
+                />
+              </div>
+              <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
+                이메일:
+                <input
+                  type="email"
+                  value={editedEmail}
+                  className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
+                  onChange={(e) => setEditedEmail(e.target.value)}
+                />
+              </div>
+              <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
+                비밀번호:
+                <input
+                  type="password"
+                  value={editedPassword}
+                  className="border border-gray-300 rounded-lg ml-7 p-2 w-80"
+                  onChange={(e) => setEditedPassword(e.target.value)}
+                />
+              </div>
+              <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
+                코멘트:
+                <input
+                  type="text"
+                  value={editedComment}
+                  className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
+                  onChange={(e) => setEditedComment(e.target.value)}
+                />
+              </div>
+              <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
               희망 시작일:
               {startTime}
-              <br />
+              </div>
+              <div className="border-t border-FCFCFC mt-4 ml-4 mb-1 p-2 w-[500px]"></div>
+              <div className="ml-[50px] text-5C5C5C text-left font-Pretendard">
               희망 종료일:
               {endTime}
-              <br />
+              </div>
             </div>
           </div>
-          <div className="flex flex justify-end mr-20 mt-[150px]">
+          <div className="flex flex justify-end mr-20 mt-[50px]">
             {/* 수정 버튼 */}
             <button
               onClick={handleEdit}
