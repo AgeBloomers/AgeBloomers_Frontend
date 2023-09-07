@@ -292,6 +292,7 @@ const Applylist = ({ userData }) => {
             <p className="text-left font-Pretendard text-2xl">매칭 확인</p>
           </div>
           <div className="flex justify-end mr-20 mt-[200px]">
+            
             <button
               onClick={back}
               className="bg-525151 text-FFD700 rounded-full font-Pretendard py-3 px-8 hover:bg-FF5252 transition duration-300"

@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 
-const FindSitter_Sitter = () => {
+const FindSitter_Sitter = ({dataProps}) => {
+  const userId = dataProps.userData.result.parents.id;
+  const usertype = dataProps.userData.type;
+  
   const [cards, setCards] = useState([]);
   const [getData, setGetData] = useState({});
   const [openCardId, setOpenCardId] = useState(null);
 
+  
+  useEffect(() => {
+
+  }, [dataProps]);
+  
   const fetchDataFromAPI = async () => {
     try {
       const apiUrl = "http://43.201.76.22:8080/api/babysitters";
@@ -30,11 +38,43 @@ const FindSitter_Sitter = () => {
     setOpenCardId(null);
   };
 
-  const handleApply = (id) => {
-    console.log(id),
-    console.log(openCardId)
+    const handleApply = async (id) => {
+      try {
+        const apiUrl = `http://43.201.76.22:8080/api/babysitter_match`;
     
-  };
+        // 신청에 필요한 데이터를 JSON 형태로 준비
+        const requestData = {
+          usertype,
+          id,
+          userId,
+        };
+        console.log(
+          usertype,
+          id,
+          userId,
+          )
+    
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData), // 데이터를 JSON 문자열로 변환하여 전송
+        });
+    
+        if (response.ok) {
+          alert("신청이 완료되었습니다.");
+          // 성공적으로 신청을 보냈을 때 필요한 동작을 수행하세요.
+        } else {
+          console.error("신청 실패:", response.status, response.statusText);
+          // 실패 시 필요한 동작을 수행하세요.
+        }
+      } catch (error) {
+        console.error("신청 실패:", error);
+        // 실패 시 필요한 동작을 수행하세요.
+      }
+    };
+    
 
 
   const handleCardOpen = async (id) => {
@@ -122,11 +162,7 @@ const FindSitter_Sitter = () => {
                       <div className="">신청</div>
                     </button>
                   </div>
-
                     </div>
-                   
-                 
-                  
                 )}
               </div>
             </div>
