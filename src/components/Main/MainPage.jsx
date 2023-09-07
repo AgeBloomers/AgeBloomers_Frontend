@@ -6,6 +6,7 @@ const MainPage = () => {
     <>
       {/* 헤더 영역 */}
       <main className="sm:h-screen bg-neutral-600 font-[Pretendard]">
+<<<<<<< HEAD
         <header className=" fixed w-full top-0 z-50 bg-neutral-200 ">
           <section className="w-[355px] sm:w-[755px] h-[190px] relative bg-neutral-200 left-1/2 transform -translate-x-1/2">
             <div className="w-[181px] h-11 left-[3px] top-[8px] absolute text-center text-emerald-900 text-[23px] font-extrabold">
@@ -20,17 +21,43 @@ const MainPage = () => {
             </div>*/}
 
             
+=======
+        <header className=" fixed w-full top-0 z-50 bg-neutral-100 ">
+          <section className="w-[355px] sm:w-[755px] h-[140px] relative bg-neutral-100 left-1/2 transform -translate-x-1/2">
+            <div className="w-[181px] h-11 left-[3px] top-[8px] absolute text-center text-emerald-900 text-[23px] font-extrabold">
+              AgeBloomers
+            </div>
+            <div className="left-[10px] bottom-[15px] absolute text-center justify-center text-emerald-900 text-2xl sm:text-3xl font-extrabold">
+              이런 서비스를 제공해요
+            </div>
+
+            <div className="w-[100px] h-8 p-2.5 right-[10px] sm:left-[610px] top-[17px]  items-center justify-center absolute text-xl bg-yellow-400 rounded-[20px] border-zinc-500 inline-flex">
+              <button className="font-extrabold">로그인</button>
+            </div>
+
+            <div className="w-[181px] h-11 left-[3px] top-[8px] absolute text-center text-emerald-900 text-[23px] font-extrabold">
+              AgeBloomers
+            </div>
+>>>>>>> yeji
           </section>
         </header>
 
         {/* 메인 버튼 Wrapper */}
         <div className="top-[140px] sm:pt-[20px] min-w-full h-[615px] sm:h-[500px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
           <div className="w-[390px] sm:w-[1000px] h-full relative p-[20px] flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+<<<<<<< HEAD
             {/* 케어 지원하기 */}
             <Link to="/Finder">
               <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-red-400 rounded-[20px] relative shadow border-4">
                 <div className="sm:translate-y-[-10px] sm:text-left">
                   케어
+=======
+            {/* 시터 지원하기 */}
+            <Link to="/apply-as-sitter">
+              <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-red-400 rounded-[20px] relative shadow border-4">
+                <div className="sm:translate-y-[-10px] sm:text-left">
+                  시터
+>>>>>>> yeji
                   <br />
                   지원하기
                 </div>
@@ -41,13 +68,22 @@ const MainPage = () => {
               </button>
             </Link>
 
+<<<<<<< HEAD
             {/* 내 주변 케어 찾기 */}
             <Link to="/CareApplySelect">
+=======
+            {/* 내 주변 시터 찾기 */}
+            <Link to="/find-local-sitters">
+>>>>>>> yeji
               <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-lime-400 rounded-[20px] relative shadow border-4">
                 <div className="sm:translate-y-[-50px] sm:text-left">
                   내 주변
                   <br />
+<<<<<<< HEAD
                   케어 찾기
+=======
+                  시터 찾기
+>>>>>>> yeji
                 </div>
                 <div
                   className="sm:p-[20px] sm:h-[80px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
@@ -55,6 +91,7 @@ const MainPage = () => {
                 ></div>
               </button>
             </Link>
+<<<<<<< HEAD
 
             {/* 사회 복지 프로그램 */}
             <Link to="/SelectCommunity">
@@ -80,6 +117,47 @@ const MainPage = () => {
                 <div
                   className="sm:p-[20px] sm:h-[150px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
                   style={{ backgroundImage: `url('src/img/button_4.svg')` }}
+=======
+            {/* 육아 지원 프로그램 */}
+            <Link to="/parenting-support">
+              <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-rose-300 rounded-[20px] relative shadow border-4">
+                <div className="sm:translate-y-[-10px] sm:text-left">
+                  육아 지원
+                  <br />
+                  프로그램
+                </div>
+                <div
+                  className="sm:p-[20px] sm:h-[150px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
+                  style={{ backgroundImage: `url('src/img/button_3.svg')` }}
+                ></div>
+              </button>
+            </Link>
+
+            {/* 노인 지원 프로그램 */}
+            <Link to="/elderly-support">
+              <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-amber-400 rounded-[20px] relative shadow border-4">
+                <div className="sm:translate-y-[-10px] sm:text-left">
+                  노인 지원
+                  <br />
+                  프로그램
+                </div>
+                <div
+                  className="sm:p-[20px] sm:h-[150px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
+                  style={{ backgroundImage: `url('src/img/button_4.svg')` }}
+                ></div>
+              </button>
+            </Link>
+            {/* 요가 및 스트레칭 */}
+            <Link to="/yoga">
+              <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-slate-400 rounded-[20px] relative shadow border-4">
+                <div className="sm:translate-y-[-10px] sm:text-left">
+                  요가 및<br />
+                  스트레칭
+                </div>
+                <div
+                  className="sm:p-[20px] sm:h-[150px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
+                  style={{ backgroundImage: `url('src/img/button_5.svg')` }}
+>>>>>>> yeji
                 ></div>
               </button>
             </Link>
@@ -189,17 +267,32 @@ const MainPage = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
 
     {/* Footer */}
       <footer className="top-[140px] min-w-full h-[200px] sm:h-[200px] relative">
           <div className="w-full h-full relative flex justify-center bg-neutral-600 ">
             {/* 문구 영역 */}
             <div className="top-[25px] absolute text-yellow-400 text-[23px] font-extrabold">
+=======
+        {/* Footer */}
+        <footer className="top-[140px] w-full min-h-[170wh] relative flex items-center justify-center bg-neutral-600 ">
+          <div className="w-[390px] h-[363px] relative bg-neutral-600">
+            <div className="w-[254px] h-16 p-2.5 left-[68px] top-[58px] absolute bg-yellow-400 rounded-[50px] justify-start items-start gap-2.5 inline-flex">
+              <button className="w-[233px] h-[43px] text-center text-emerald-900 text-xl font-extrabold">
+                지금 서비스 이용하기
+              </button>
+            </div>
+            <div className="w-[181px] h-[78px] left-[105px] top-[285px] absolute text-center text-yellow-400 text-[23px] font-extrabold">
+>>>>>>> yeji
               AgeBloomers
             </div>
           </div>
         </footer>
+<<<<<<< HEAD
 
+=======
+>>>>>>> yeji
       </main>
     </>
   );
