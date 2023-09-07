@@ -12,6 +12,7 @@ const Stretching = () => {
   };
 
   useEffect(() => {
+    
   }, [urlOption, descript])
   
 
@@ -46,28 +47,28 @@ const Stretching = () => {
             <button 
                 className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
                 onClick={() => handleButtonClick(
-                  {key: 'OA6l5X9RWMQ', value: `
+                  {key: 'qkDjMJkLxIo', value: `
                   <div style="padding: 10px; width: 750px; text-align: left; font-weight: bold; color: #767171; font-size: 20px;">
                   
                   <p style="font-style: italic;">
-                  #스트레칭과 편안함 # 호흡과 안정감 #소화 개선
+                  #숨쉬기 기능 향상 #면역 체계 지원 #수면 향상
                   </p><br />
                   <h2 style="font-size: 30px; color: black;">설명</h2><br />
                   <p>
-                    아기 자세는 임산부 요가에서 사용되는 자세 중 하나로, 임신 중 편안한 자세를 취할 수 있도록 도와주는 자세입니다.
+                  호흡 운동은 노인에게 다양한 효과를 제공할 수 있는 중요한 활동입니다.
                   </p><br />
                   
                   <h2 style="font-size: 30px; color: black;">효과</h2><br />
-                  <p style="color: #FF8E00">스트레칭과 편안함</p>
-                    <p>아기 자세는 임신 중 어깨, 등, 다리 등의 근육을 스트레칭하고 풀어줄 수 있어 몸의 피로와 긴장을 완화하는 데 도움이 됩니다.
+                  <p style="color: #FF8E00">숨쉬기 기능 향상</p>
+                    <p> 호흡 운동은 폐활량을 향상시키고 폐의 확장력을 유지하는 데 도움이 됩니다. 이는 숨쉬기의 효율성을 높이고 폐 건강을 개선하는 데 도움이 됩니다.
                   </p><br />
                   
-                  <p style="color: #FF8E00">호흡과 안정감</p>
-                  <p>아기 자세를 취하면 효과적인 호흡을 돕고, 임신 중 느끼는 스트레스와 긴장을 감소시킬 수 있습니다.
+                  <p style="color: #FF8E00">면역 체계 지원</p>
+                  <p>균형 잡힌 호흡은 면역 체계를 지원하는 데 도움을 줄 수 있습니다. 좋은 숨쉬기는 체내의 산소 공급을 증가시키고 체내 폐암산소를 증가시키는 데 도움이 됩니다.
                 </p><br />
                   
-                <p style="color: #FF8E00">소화 개선</p>
-                <p>아기 자세는 소화를 개선하고 소화 불편을 완화하는 데 도움을 줄 수 있습니다.
+                <p style="color: #FF8E00">수면 향상</p>
+                <p>균형 잡힌 호흡은 노인의 수면 품질을 개선하는 데 도움이 될 수 있습니다. 깊게 들이마시고 천천히 내쉬는 호흡 기술은 수면 중 깊은 휴식을 취할 수 있도록 도와줍니다.
               </p><br />
                 </div>
                   `})}
@@ -79,28 +80,28 @@ const Stretching = () => {
             <button 
                 className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
                 onClick={() => handleButtonClick(
-                  {key: 'OA6l5X9RWMQ', value: `
+                  {key: 'RK230zaDMTY', value: `
                   <div style="padding: 10px; width: 750px; text-align: left; font-weight: bold; color: #767171; font-size: 20px;">
                   
                   <p style="font-style: italic;">
-                  #스트레칭과 편안함 # 호흡과 안정감 #소화 개선
+                  #자기 인식 향상 #스트레스 감소 #정서적 안정감 향상
                   </p><br />
                   <h2 style="font-size: 30px; color: black;">설명</h2><br />
                   <p>
-                    아기 자세는 임산부 요가에서 사용되는 자세 중 하나로, 임신 중 편안한 자세를 취할 수 있도록 도와주는 자세입니다.
+                  명상은 노인에게 다양한 효과를 제공할 수 있는 중요한 활동입니다.
                   </p><br />
                   
                   <h2 style="font-size: 30px; color: black;">효과</h2><br />
-                  <p style="color: #FF8E00">스트레칭과 편안함</p>
-                    <p>아기 자세는 임신 중 어깨, 등, 다리 등의 근육을 스트레칭하고 풀어줄 수 있어 몸의 피로와 긴장을 완화하는 데 도움이 됩니다.
+                  <p style="color: #FF8E00">자기 인식 향상</p>
+                    <p>명상은 자기 인식을 증진시키는 데 도움이 됩니다. 노인들은 자신의 몸과 마음에 더 연결되고, 자기 이해와 수용을 높일 수 있습니다.
                   </p><br />
                   
-                  <p style="color: #FF8E00">호흡과 안정감</p>
-                  <p>아기 자세를 취하면 효과적인 호흡을 돕고, 임신 중 느끼는 스트레스와 긴장을 감소시킬 수 있습니다.
+                  <p style="color: #FF8E00">스트레스 감소</p>
+                  <p>명상은 스트레스를 감소시키는 데 도움이 됩니다. 노인은 삶의 변화나 건강 문제로 인해 스트레스를 느낄 수 있으며, 명상을 통해 마음을 평화롭게 하고 긴장을 완화할 수 있습니다.
                 </p><br />
                   
-                <p style="color: #FF8E00">소화 개선</p>
-                <p>아기 자세는 소화를 개선하고 소화 불편을 완화하는 데 도움을 줄 수 있습니다.
+                <p style="color: #FF8E00">정서적 안정감 향상</p>
+                <p>명상은 감정을 관리하고 정서적 안정감을 증진시키는 데 도움이 됩니다. 노인들은 외부 환경에 대한 감정적 반응을 관리하고 긍정적인 정서를 느낄 수 있도록 도와줍니다.
               </p><br />
                 </div>
                   `})}
@@ -112,28 +113,28 @@ const Stretching = () => {
             <button 
                 className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
                 onClick={() => handleButtonClick(
-                  {key: 'OA6l5X9RWMQ', value: `
+                  {key: 'NABkYV6IWYA', value: `
                   <div style="padding: 10px; width: 750px; text-align: left; font-weight: bold; color: #767171; font-size: 20px;">
                   
                   <p style="font-style: italic;">
-                  #스트레칭과 편안함 # 호흡과 안정감 #소화 개선
+                  #근육 강화 #균형 및 안정성 향상 #뼈 건강 증진
                   </p><br />
                   <h2 style="font-size: 30px; color: black;">설명</h2><br />
                   <p>
-                    아기 자세는 임산부 요가에서 사용되는 자세 중 하나로, 임신 중 편안한 자세를 취할 수 있도록 도와주는 자세입니다.
+                  다리 운동은 노인에게 다양한 효과를 제공할 수 있는 중요한 활동입니다.
                   </p><br />
                   
                   <h2 style="font-size: 30px; color: black;">효과</h2><br />
-                  <p style="color: #FF8E00">스트레칭과 편안함</p>
-                    <p>아기 자세는 임신 중 어깨, 등, 다리 등의 근육을 스트레칭하고 풀어줄 수 있어 몸의 피로와 긴장을 완화하는 데 도움이 됩니다.
+                  <p style="color: #FF8E00">근육 강화</p>
+                    <p>다리 운동은 대퇴사두근, 종아리 근육 및 엉덩이 근육과 같은 다리 근육을 강화하는 데 도움이 됩니다. 강한 다리 근육은 노인들이 일상 생활 활동을 수행하는 데 필수적이며, 낙상 및 부상 예방에도 도움을 줄 수 있습니다.
                   </p><br />
                   
-                  <p style="color: #FF8E00">호흡과 안정감</p>
-                  <p>아기 자세를 취하면 효과적인 호흡을 돕고, 임신 중 느끼는 스트레스와 긴장을 감소시킬 수 있습니다.
+                  <p style="color: #FF8E00">균형 및 안정성 향상</p>
+                  <p>다리 운동은 노인들의 균형과 안정성을 향상시키는 데 도움이 됩니다. 강한 다리 근육은 걸을 때나 일어서고 앉을 때 더 안정적인 자세를 유지하는 데 도움을 줄 수 있습니다.
                 </p><br />
                   
-                <p style="color: #FF8E00">소화 개선</p>
-                <p>아기 자세는 소화를 개선하고 소화 불편을 완화하는 데 도움을 줄 수 있습니다.
+                <p style="color: #FF8E00">뼈 건강 증진</p>
+                <p>다리 운동은 뼈 밀도를 증가시키고 뼈 건강을 개선하는 데 도움을 줄 수 있습니다. 이는 골다공증과 같은 골격계 질환의 위험을 줄이는 데 도움이 됩니다.
               </p><br />
                 </div>
                   `})}
@@ -144,28 +145,28 @@ const Stretching = () => {
             <button 
                 className="w-full bg-slate-400 rounded-[20px] relative shadow border-4"
                 onClick={() => handleButtonClick(
-                  {key: 'OA6l5X9RWMQ', value: `
+                  {key: 'ImySpB2c5wk', value: `
                   <div style="padding: 10px; width: 750px; text-align: left; font-weight: bold; color: #767171; font-size: 20px;">
                   
                   <p style="font-style: italic;">
-                  #스트레칭과 편안함 # 호흡과 안정감 #소화 개선
+                  #근육 강화 #기능적 독립성 유지 #뼈 건강 증진
                   </p><br />
                   <h2 style="font-size: 30px; color: black;">설명</h2><br />
                   <p>
-                    아기 자세는 임산부 요가에서 사용되는 자세 중 하나로, 임신 중 편안한 자세를 취할 수 있도록 도와주는 자세입니다.
+                  팔 운동은 노인에게 다양한 효과를 제공할 수 있는 중요한 활동입니다.
                   </p><br />
                   
                   <h2 style="font-size: 30px; color: black;">효과</h2><br />
-                  <p style="color: #FF8E00">스트레칭과 편안함</p>
-                    <p>아기 자세는 임신 중 어깨, 등, 다리 등의 근육을 스트레칭하고 풀어줄 수 있어 몸의 피로와 긴장을 완화하는 데 도움이 됩니다.
+                  <p style="color: #FF8E00">근육 강화</p>
+                    <p>팔 운동은 상완삼두근, 이두근, 어깨 근육과 같은 팔 근육을 강화하는 데 도움이 됩니다. 이는 노인들이 일상 생활 활동에서 물건을 들거나 올리는 데 도움을 줄 수 있습니다.
                   </p><br />
                   
-                  <p style="color: #FF8E00">호흡과 안정감</p>
-                  <p>아기 자세를 취하면 효과적인 호흡을 돕고, 임신 중 느끼는 스트레스와 긴장을 감소시킬 수 있습니다.
+                  <p style="color: #FF8E00">기능적 독립성 유지</p>
+                  <p>강한 팔 근육은 노인들이 일상 생활에서 독립적으로 활동할 수 있도록 도와줍니다. 물건을 들고 옮기거나 더 높은 곳에 물건을 가져다 놓는 데 필요한 기능성을 유지할 수 있습니다.
                 </p><br />
                   
-                <p style="color: #FF8E00">소화 개선</p>
-                <p>아기 자세는 소화를 개선하고 소화 불편을 완화하는 데 도움을 줄 수 있습니다.
+                <p style="color: #FF8E00">뼈 건강 증진</p>
+                <p>상완삼두근과 같은 팔 근육 강화는 뼈 건강을 증진시키는 데 도움을 줄 수 있습니다. 이는 골다공증과 같은 골격계 질환의 위험을 줄이는 데 도움이 됩니다.
               </p><br />
                 </div>
                   `})}

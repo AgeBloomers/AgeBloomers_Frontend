@@ -11,7 +11,6 @@ import Stretching_view from "./components/Detail/Stretching_view"
 import ParentingSupportPage from "./components/Detail/ParentingSupportPage"
 import ElderlySupportPage from "./components/Detail/ElderlySupportPage"
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -35,7 +34,11 @@ function App() {
         {/* 스트레칭 선택 */}
         <Route path="/SelectCare/Stretching" element={<Stretching />}></Route>
         <Route path="/SelectCare/Stretching/Stretching_view" element={<Stretching_view />}></Route>
-
+        <Route path="/SelectCare/Stretching/Stretching_view" element={<Stretching_view />}></Route>
+        
+        
+        
+        
 
 
 

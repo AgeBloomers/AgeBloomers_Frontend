@@ -12,7 +12,7 @@ const MainPage = () => {
               AgeBloomers
             </div>
             <div className="left-[10px] bottom-[15px] absolute justify-center text-emerald-900 text-2xl sm:text-3xl font-extrabold text-left">
-              #간병 #도움 #연결<br/> 모든 헬스 케어를 연결하다
+              #케어 #복지 #건강<br/> 모두의 케어를 연결하다
             </div>
 
             {/* <div className="w-[100px] h-8 p-2.5 right-[10px] sm:left-[610px] top-[17px]  items-center justify-center absolute text-xl bg-yellow-400 rounded-[20px] border-zinc-500 inline-flex">
@@ -62,7 +62,7 @@ const MainPage = () => {
                 <div className="sm:translate-y-[-10px] sm:text-left">
                 사회 복지
                   <br />
-                  프로그램
+                  제도 찾기
                 </div>
                 <div
                   className="sm:p-[20px] sm:h-[150px] bg-no-repeat bg-center bg-contain transform translate-y-[20px]"
@@ -74,7 +74,7 @@ const MainPage = () => {
             <Link to="/SelectCare">
               <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-slate-400 rounded-[20px] relative shadow border-4">
                 <div className="sm:translate-y-[-10px] sm:text-left">
-                헬스 케어<br />
+                건강 관리<br />
                 프로그램
                 </div>
                 <div
