@@ -121,7 +121,7 @@ const Form_carehelper = () => {
       <div className="mr-[70px] mt-[140px] flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
           <div className="mt-10 ml-10">
-            <p className="text-5C5C5C text-left font-Pretendard">
+            <p className="ml-[30px] sm:ml-0 text-5C5C5C text-left font-bold font-Pretendard">
               간단한 인적사항을 작성해주세요!
             </p>
             <p className="ml-[20px] text-left font-Pretendard font-extrabold text-3xl">
