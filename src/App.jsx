@@ -10,14 +10,32 @@ import Stretching from "./components/Detail/Stretching"
 import Stretching_view from "./components/Detail/Stretching_view"
 import ParentingSupportPage from "./components/Detail/ParentingSupportPage"
 import ElderlySupportPage from "./components/Detail/ElderlySupportPage"
-
+import Finder from "./components/Main/Finder";
+import CareApplySelect from "./components/Main/CareApplySelect";
+import Applylist from "./components/Detail/Applylist";
+import FindSitter_Sitter from "./components/Detail/FindSitter_Sitter";
+import Form_sitter from "./components/Detail/Form_sitter";
+import FindCareHelper from "./components/Detail/FindCareHelper";
+import ApplyComplete from "./components/Detail/ApplyComplete";
+import Form_carehelper from "./components/Detail/Form_carehelper";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* 메인 페이지 */}
         <Route path="/" element={<MainPage />}></Route>
-        
+
+        {/* 케어 지원하기 */}
+        <Route path="/CareApplySelect" element={<CareApplySelect />}></Route>
+        <Route path="/CareApplySelect/Form_sitter" element={<Form_sitter />}></Route>
+        <Route path="/CareApplySelect/Form_carehelper" element={<Form_carehelper />}></Route>
+        <Route path="/CareApplySelect/Applylist" element={<Applylist />}></Route>
+
+        {/* 케어 찾기 */}
+        <Route path="/Finder" element={<Finder />}></Route>
+        <Route path="/Finder/FindSitter" element={<FindSitter_Sitter />}></Route>
+        <Route path="/Finder/FindCareHelper" element={<FindCareHelper />}></Route>
+        <Route path="/Finder/FindCareHelper/FindMore/ApplyComplete" element={<ApplyComplete />}></Route>
         
         {/* 사회 복지 프로그램 페이지 */}
         <Route path="/SelectCommunity" element={<SelectCommunity />}></Route>
@@ -27,17 +45,16 @@ function App() {
         
         {/* 헬스 케어 프로그램 페이지 */}
         <Route path="/SelectCare" element={<SelectCare />}></Route>
-        
         {/* 요가 선택 */}
         <Route path="/SelectCare/Yoga" element={<Yoga />}></Route>
         <Route path="/SelectCare/Yoga/Yoga_view" element={<Yoga_view />} />
         {/* 스트레칭 선택 */}
         <Route path="/SelectCare/Stretching" element={<Stretching />}></Route>
         <Route path="/SelectCare/Stretching/Stretching_view" element={<Stretching_view />}></Route>
-        <Route path="/SelectCare/Stretching/Stretching_view" element={<Stretching_view />}></Route>
         
-        
-        
+      
+
+z        
         
 
 

@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../Main/NavBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Footer from "../Main/Footer";
 
-const Form_carehelper = () => {
-  const divStyle = {
-    width: "600px",
-    height: "1100px",
-  };
+const Form_sitter = () => {
+
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+
+  useEffect(() => {
+
+  }, [])
 
   // Date 객체로 날짜 및 시간 값 저장
   // const [registerDate, setRegisterDate] = useState(null);
@@ -63,6 +65,7 @@ const Form_carehelper = () => {
 
     try {
       // Date 객체를 문자열로 변환하여 서버에 전송할 수 있도록 함
+      const data = e.target.type.value
       const formattedStartDate = selectedDate.toISOString();
       const formattedEndDate = endDate.toISOString();
       const currentDateTime = new Date();
@@ -91,8 +94,8 @@ const Form_carehelper = () => {
       const jsonData = JSON.stringify(formData);
 
       // URL에서 {type} 변수를 올바른 값으로 대체
-      const url = `http://43.201.76.22:8080/api/careinfo/upload/${e.target.type.value}`;
-
+      const url = `http://43.201.76.22:8080/api/careinfo/upload/${data}`;
+  
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -119,9 +122,9 @@ const Form_carehelper = () => {
     <div>
       <NavBar />
       <div className="mr-[70px] mt-[140px] flex justify-center items-center min-h-screen">
-        <div className="bg-white rounded-3xl" style={divStyle}>
+        <div className="bg-white rounded-3xl">
           <div className="mt-10 ml-10">
-            <p className="text-5C5C5C text-left font-Pretendard">
+            <p className="ml-[30px] sm:ml-0 text-5C5C5C text-left font-bold font-Pretendard">
               간단한 인적사항을 작성해주세요!
             </p>
             <p className="ml-[20px] text-left font-Pretendard font-extrabold text-3xl">
@@ -140,13 +143,13 @@ const Form_carehelper = () => {
             onSubmit={handleSubmit}>
            <div className="mt-10 ml-20 text-5C5C5C text-left font-Pretendard">
               유형
-              <div className="ml-10 sm:ml-20 -mt-5">
-                <label className=" sm:ml-20">
-                  <input type="radio" name="type" value="Caregivers" />{" "}
-                  요양보호사
+              <div className="ml-20 -mt-5">
+                <label className="sm:mr-4 sm:ml-20">
+                  <input type="radio" name="type" value="Babysitters" />{" "}
+                  베이비시터
                 </label>
-                <label className="ml-5 sm:ml-20">
-                  <input type="radio" name="type" value="Elders" /> 보호자(어르신)
+                <label className="ml-[20px] sm:ml-20">
+                  <input type="radio" name="type" value="Parents" /> 부모
                 </label>
               </div>
             </div>
@@ -157,9 +160,10 @@ const Form_carehelper = () => {
                 type="text"
                 name="name"
                 className="border border-gray-300 rounded-lg ml-10 p-2 w-[150px] sm:w-96"
-                placeholder="보호자님은 어르신 성함을 입력해주세요"
+                placeholder="부모님은 자녀 이름을 입력해주세요"
               />
             </div>
+            
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
             <div className="ml-20 text-5C5C5C text-left font-Pretendard flex items-center">
             <label style={{ flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
@@ -170,12 +174,14 @@ const Form_carehelper = () => {
                 className="border border-gray-300 rounded-lg ml-[10px] sm:ml-[50px] p-2 w-[50px] sm:w-20"
                 placeholder=""
                 onChange={handleAgeChange}
-              /><span className="ml-3 sm:ml-2" style={{ whiteSpace: 'nowrap' }}>세</span>
-              </label>
-              <div className="ml-2 sm:ml-3 text-ef4444">
-                * 보호자님은 어르신의 정보를 입력해주세요
-              </div>
+              />
+              <span className="ml-3 sm:ml-2" style={{ whiteSpace: 'nowrap' }}>세</span>
+            </label>
+            <div className="ml-2 sm:ml-3 text-ef4444">
+              * 보호자님은 자녀의 정보를 입력해주세요
             </div>
+          </div>
+
 
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
 
@@ -297,10 +303,9 @@ const Form_carehelper = () => {
           </form>
         </div>
       </div>
-      <Footer />
-      
+      <Footer />  
     </div>
   );
 };
 
-export default Form_carehelper;
+export default Form_sitter;

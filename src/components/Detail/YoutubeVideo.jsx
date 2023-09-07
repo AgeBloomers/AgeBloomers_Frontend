@@ -5,7 +5,7 @@ const YoutubeVideo = (props) => {
   
   // YouTube 동영상의 옵션 설정
   const opts = {
-    height: '480',
+    height: '580',
     width: '780',
     playerVars: {
       autoplay: 1, // 자동 재생 여부 (1: 자동 재생)
