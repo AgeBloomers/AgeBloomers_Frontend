@@ -26,7 +26,7 @@ $ npm i
 ```JS
 npm run dev
 ```
-- http://localhost:3000 접속
+- http://localhost:5173 접속
 
 ## 사용 패키지
 - axios
