@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NavBar from "../Main/NavBar";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-<<<<<<< HEAD
 import Footer from "../Main/Footer";
-=======
->>>>>>> yeji
 
 const Form_carehelper = () => {
   const divStyle = {
@@ -121,7 +118,6 @@ const Form_carehelper = () => {
   return (
     <div>
       <NavBar />
-<<<<<<< HEAD
       <div className="mr-[70px] mt-[140px] flex justify-center items-center min-h-screen">
         <div className="bg-white rounded-3xl" style={divStyle}>
           <div className="mt-10 ml-10">
@@ -129,15 +125,6 @@ const Form_carehelper = () => {
               간단한 인적사항을 작성해주세요!
             </p>
             <p className="ml-[20px] text-left font-Pretendard font-extrabold text-3xl">
-=======
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="bg-white rounded-3xl" style={divStyle}>
-          <div className="mt-10 ml-10">
-            <p className="text-5C5C5C text-left font-Pretendard">
-              간단한 인적사항을 작성해주세요!
-            </p>
-            <p className="text-left font-Pretendard text-2xl">
->>>>>>> yeji
               케어 지원 신청서 작성
             </p>
           </div>
@@ -148,7 +135,6 @@ const Form_carehelper = () => {
             </p>
           )}
 
-<<<<<<< HEAD
           <form 
             className="w-[390] h-[844px]"
             onSubmit={handleSubmit}>
@@ -161,18 +147,6 @@ const Form_carehelper = () => {
                 </label>
                 <label className="ml-5 sm:ml-20">
                   <input type="radio" name="type" value="Elders" /> 보호자(어르신)
-=======
-          <form onSubmit={handleSubmit}>
-            <div className="mt-10 ml-20 text-5C5C5C text-left font-Pretendard">
-              유형
-              <div className="ml-20 -mt-5">
-                <label className="mr-4 ml-20">
-                  <input type="radio" name="type" value="caregivers" />{" "}
-                  요양보호사
-                </label>
-                <label className="ml-20">
-                  <input type="radio" name="type" value="elders" /> 보호자(어르신)
->>>>>>> yeji
                 </label>
               </div>
             </div>
@@ -182,17 +156,12 @@ const Form_carehelper = () => {
               <input
                 type="text"
                 name="name"
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-10 p-2 w-[150px] sm:w-96"
-=======
-                className="border border-gray-300 rounded-lg ml-10 p-2 w-96"
->>>>>>> yeji
                 placeholder="보호자님은 어르신 성함을 입력해주세요"
               />
             </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
             <div className="ml-20 text-5C5C5C text-left font-Pretendard flex items-center">
-<<<<<<< HEAD
             <label style={{ flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
               <span style={{ whiteSpace: 'nowrap' }}>나이</span>
               <input
@@ -205,19 +174,6 @@ const Form_carehelper = () => {
               </label>
               <div className="ml-2 sm:ml-3 text-ef4444">
                 * 보호자님은 어르신의 정보를 입력해주세요
-=======
-              나이
-              <input
-                type="number"
-                name="age"
-                className="border border-gray-300 rounded-lg ml-10 p-2 w-20"
-                placeholder=""
-                onChange={handleAgeChange}
-              />
-              <div className="ml-2">세</div>
-              <div className="ml-2 text-ef4444">
-              * 보호자님은 어르신 정보를 입력해주세요
->>>>>>> yeji
               </div>
             </div>
 
@@ -225,11 +181,7 @@ const Form_carehelper = () => {
 
             <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               성별
-<<<<<<< HEAD
               <div className="ml-5 sm:ml-20 -mt-5">
-=======
-              <div className="ml-20 -mt-5">
->>>>>>> yeji
                 <label className="mr-4 ml-20">
                   <input type="radio" name="gender" value="F" /> 여성
                 </label>
@@ -242,11 +194,7 @@ const Form_carehelper = () => {
             <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               지역
               <select
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[180px] sm:w-96"
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
->>>>>>> yeji
                 placeholder="지역을 선택해주세요"
                 name="address"
               >
@@ -276,29 +224,17 @@ const Form_carehelper = () => {
               <input
                 type="number"
                 name="contact"
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[170px] sm:w-96"
                 placeholder="- 없이 01012345678 형식으로 입력해주세요"
               />
             </div>
             <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 sm:w-4/5"></div>
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
-                placeholder="- 없이 01012345678 형식으로 입력해주세요"
-              />
-            </div>
-            <div className="border-t border-FCFCFC mt-4 ml-16 mb-1 p-2 w-4/5"></div>
->>>>>>> yeji
             <div className="ml-20 text-5C5C5C text-left font-Pretendard">
               이메일
               <input
                 type="email"
                 name="email"
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[170px] sm:w-96"
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
->>>>>>> yeji
                 placeholder="ex) example@naver.com"
               />
             </div>
@@ -306,11 +242,7 @@ const Form_carehelper = () => {
             <div className="ml-20 text-5C5C5C text-left font-Pretendard flex">
               희망 날짜
               <DatePicker
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[30px] sm:w-36 text-sm"
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-36 text-sm"
->>>>>>> yeji
                 placeholderText="시작 날짜 및 시간 선택"
                 selected={selectedDate}
                 onChange={handleDateChange}
@@ -321,11 +253,7 @@ const Form_carehelper = () => {
               />
               <div className="mt-2 ml-2">부터</div>
               <DatePicker
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-2 p-2 w-[30px] sm:w-36 text-sm"
-=======
-                className="border border-gray-300 rounded-lg ml-2 p-2 w-36 text-sm"
->>>>>>> yeji
                 placeholderText="종료 날짜 및 시간 선택"
                 selected={endDate}
                 onChange={handleEndDateChange}
@@ -342,11 +270,7 @@ const Form_carehelper = () => {
               <input
                 type="text"
                 name="comment"
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[170px] sm:w-96"
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-96"
->>>>>>> yeji
                 placeholder="특이사항, 바라는점, 약력 등 무엇이든 남겨보세요 !"
               />
             </div>
@@ -356,27 +280,16 @@ const Form_carehelper = () => {
               <input
                 type="password"
                 name="password"
-<<<<<<< HEAD
                 className="border border-gray-300 rounded-lg ml-7 p-2 w-[150px] sm:w-80"
-=======
-                className="border border-gray-300 rounded-lg ml-7 p-2 w-80"
->>>>>>> yeji
                 placeholder="신청 조회용 비밀번호를 입력해주세요"
               />
             </div>
 
             {/* "신청하기" 버튼 */}
-<<<<<<< HEAD
             <div className="mt-10 mr-[70px] sm:mr-[160px] text-right">
               <button
                 type="submit"
                 className="bg-525151 sm:text-lg font-extrabold text-FFD700 rounded-full font-Pretendard py-3 px-8 hover:bg-00694E transition duration-300"
-=======
-            <div className="mt-4 ml-20 mr-10 mt-[40px] text-right">
-              <button
-                type="submit"
-                className="bg-525151 text-FFD700 rounded-full font-Pretendard py-3 px-8 hover:bg-00694E transition duration-300"
->>>>>>> yeji
               >
                 신청하기
               </button>
@@ -384,18 +297,8 @@ const Form_carehelper = () => {
           </form>
         </div>
       </div>
-<<<<<<< HEAD
       <Footer />
       
-=======
-      <footer className="top-[140px] w-full min-h-[170wh] relative flex items-center justify-center bg-neutral-600 ">
-        <div className="w-[390px] h-[363px] relative bg-neutral-600">
-          <div className="w-[181px] h-[78px] left-[105px] top-[285px] absolute text-center text-yellow-400 text-[23px] font-extrabold">
-            AgeBloomers
-          </div>
-        </div>
-      </footer>
->>>>>>> yeji
     </div>
   );
 };
