@@ -29,7 +29,7 @@ const ElderlySupportPage = () => {
       </header>
 
       {/* Button Wrapper */}
-      <div className="top-[140px] sm:pt-[20px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
+      <div className="top-[140px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
   <p className='p-[20px] sm:block text-center text-neutral-600'>노인정책</p>
   <div className='text-neutral-600 text-[17px] sm:text-[23px]'>
     {ElderlydataFir.map(policy => (
@@ -47,13 +47,13 @@ const ElderlySupportPage = () => {
   </div>
 </div>
 
-<div className="top-[140px] sm:pt-[20px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
+<div className="top-[140px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
   <p className='p-[10px] sm:block text-center text-neutral-600'>노인지원</p>
   <div className='text-neutral-600 text-[17px] sm:text-[23px]'>
     {ElderlydataSec.map(policy => (
       <div key={policy.title} className="w-full sm:w-[500px] mb-[20px]">
         <div className='flex items-center justify-between h-[65px] sm:h-[80px] bg-yellow-400 rounded-[20px] border-zinc-500'>
-          <div className='ml-[10px] w-[240px] sm:w-full flex-grow h-[20px] sm:h-[40px]'>{policy.title}</div>
+          <div className='ml-[20px] w-[240px] sm:w-full flex-grow h-[20px] sm:h-[40px]'>{policy.title}</div>
           <a href={policy.policyLink} target="_blank" rel="noopener noreferrer">
             <button className='mr-[10px] h-[30px] sm:h-[40px] w-[70px] sm:w-[120px] relative ml-auto bg-neutral-600 rounded-[20px] text-white border-zinc-500'>
               이동

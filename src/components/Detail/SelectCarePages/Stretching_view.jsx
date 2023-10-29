@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import YoutubeVideo from './YoutubeVideo';
 import Webcam from 'react-webcam'; // react-webcam 라이브러리 추가
-import Footer from '../Main/Footer';
+import Footer from "../../Main/Footer";
+
 
 const Stretching_view = ({ urlOption, descript }) => {
   const [boxHidden, setBoxHidden] = useState(false)
@@ -46,7 +47,7 @@ const Stretching_view = ({ urlOption, descript }) => {
 
   {/* Wrapper */}
 
-     <div className="top-[110px] sm:pt-[20px] min-w-full h-[615px] sm:h-[1120px] flex justify-center relative bg-neutral-100 text-white font-bold text-[30px] sm:text-[45px]">
+     <div className="top-[110px] min-w-full h-[615px] sm:h-[1120px] flex justify-center relative bg-neutral-100 text-white font-bold text-[30px] sm:text-[45px]">
       <p className='top-[30px] hidden sm:block sm:p-[26px] text-neutral-600 absolute'>노인 스트레칭</p>
       <button 
       onClick={motionClick}

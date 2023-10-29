@@ -27,7 +27,7 @@ const MainPage = () => {
         <div className="top-[140px] sm:pt-[20px] min-w-full h-[615px] sm:h-[500px] flex justify-center relative bg-neutral-100 text-white font-bold text-[20px] sm:text-[28px]">
           <div className="w-[390px] sm:w-[1000px] h-full relative p-[20px] flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
             {/* 케어 지원하기 */}
-            <Link to="/Finder">
+            <Link to="/CareApplySelect">
               <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-red-400 rounded-[20px] relative shadow border-4">
                 <div className="sm:translate-y-[-10px] sm:text-left">
                   케어
@@ -42,7 +42,7 @@ const MainPage = () => {
             </Link>
 
             {/* 내 주변 케어 찾기 */}
-            <Link to="/CareApplySelect">
+            <Link to="/Finder">
               <button className="w-[240px] sm:w-[180px] sm:h-[324px] p-[20px] bg-lime-400 rounded-[20px] relative shadow border-4">
                 <div className="sm:translate-y-[-50px] sm:text-left">
                   내 주변
@@ -199,6 +199,7 @@ const MainPage = () => {
             </div>
           </div>
         </footer>
+
       </main>
     </>
   );

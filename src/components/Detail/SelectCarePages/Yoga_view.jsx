@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import YoutubeVideo from './YoutubeVideo';
 import Webcam from 'react-webcam'; // react-webcam 라이브러리 추가
-import Footer from "../Main/Footer";
+import Footer from '../../Main/Footer';
 
 const Yoga_view = ({ urlOption, descript }) => {
   const [boxHidden, setBoxHidden] = useState(false)

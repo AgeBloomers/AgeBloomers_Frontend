@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ParentingSupportPage from '../src/components/Detail/ParentingSupportPage';
-import ElderlySupportPage from '../src/components/Detail/ElderlySupportPage';
+import ParentingSupportPage from '../src/components/Detail/SelectCommunityPages/ParentingSupportPage';
+import ElderlySupportPage from '../src/components/Detail/SelectCommunityPages/ElderlySupportPage';
 
 const apiData = () => {
   const [data, setData] = useState({});

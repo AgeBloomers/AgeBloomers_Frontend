@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Footer from '../Main/Footer';
+import Footer from '../../Main/Footer';
 
 const ParentingSupportPage = () => {
   const [data, setData] = useState({});
@@ -30,7 +30,7 @@ const ParentingSupportPage = () => {
       </header>
 
       {/* Wrapper */}
-      <div className="top-[140px] sm:pt-[20px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
+      <div className="top-[140px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
   <p className='p-[20px] sm:block text-center text-neutral-600'>아동복지정책</p>
   <div className='text-neutral-600 text-[17px] sm:text-[23px]'>
     {ParentingdataFir.map(policy => (
@@ -48,7 +48,7 @@ const ParentingSupportPage = () => {
   </div>
 </div>
 
-<div className="top-[140px] sm:pt-[20px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
+<div className="top-[140px] min-w-full sm:min-w-[500px] h-[auto] sm:h-[600px] flex flex-col items-center relative bg-neutral-100 font-bold text-[20px] sm:text-[30px]">
   <p className='p-[20px] sm:block text-center text-neutral-600'>출산정책</p>
   <div className='text-neutral-600 text-[17px] sm:text-[23px]'>
     {ParentingdataSec.map(policy => (

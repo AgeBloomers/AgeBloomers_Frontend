@@ -6,7 +6,7 @@ const FindMore_Sitter = async ({ onClose, selectedCard }) => {
   // const handleDetailClick = async () => {
     if (selectedCard !== null) {
       try {
-        const apiUrl = "http://43.201.76.22:8080/api/babysitters/details/" + "Babysitters/" + selectedCard;
+        const apiUrl = "http://43.201.76.22:8080/api/babysitters/details/" + "babysitters/" + selectedCard;
 
         const response = await fetch(apiUrl, {
           method: "POST",

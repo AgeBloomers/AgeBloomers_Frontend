@@ -2,7 +2,6 @@ import NavBar from "../Main/NavBar";
 import { useState, useEffect } from "react";
 import FindCare_carehelper from "./FindCare_carehelper";
 import FindCare_old from "./FindCare_old";
-import Footer from "../Main/Footer";
 
 const FindCareHelper = () => {
   const [divHeight, setDivHeight] = useState(600); // 초기 높이 설정
@@ -73,7 +72,13 @@ const FindCareHelper = () => {
         </div>
       </div>
 
-      <Footer />
+      <footer className="top-[140px] w-full min-h-[170wh] relative flex items-center justify-center bg-neutral-600">
+        <div className="w-[390px] h-[363px] relative bg-neutral-600">
+          <div className="w-[181px] h-[78px] left-[105px] top-[285px] absolute text-center text-yellow-400 text-[23px] font-extrabold">
+            AgeBloomers
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
