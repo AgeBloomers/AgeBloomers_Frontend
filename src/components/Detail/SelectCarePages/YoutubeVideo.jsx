@@ -1,19 +1,19 @@
 import React from 'react';
 import YouTube from 'react-youtube';
 
-const YoutubeVideo = (props) => {
+const YoutubeVideo = ({ urlOption, height, width }) => {
   
   // YouTube 동영상의 옵션 설정
   const opts = {
-    height: '580',
-    width: '780',
+    height: `${height}`,
+    width: `${width}`,
     playerVars: {
       autoplay: 1, // 자동 재생 여부 (1: 자동 재생)
     },
   };
 
   // YouTube 동영상의 ID
-  const videoId = `${props.urlOption}`; // 원하는 동영상 ID로 변경
+  const videoId = `${urlOption}`; // 원하는 동영상 ID로 변경
   return (
     <div>
       <YouTube videoId={videoId} opts={opts} />
